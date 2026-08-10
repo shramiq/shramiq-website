@@ -4,179 +4,263 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SHRAMIQ | Industrial Recruitment & Staffing</title>
+  <title>SHRAMIQ | Smart Workforce. Strong Industry.</title>
 
   <meta name="description"
-        content="SHRAMIQ connects industrial employers with skilled, semi-skilled and reliable workforce.">
+    content="SHRAMIQ connects industrial employers with reliable workforce across Uttarakhand and North India.">
 
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #f6f8fb;
-      color: #172033;
-      line-height: 1.6;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f9fc;
+      color: #14213d;
     }
 
     header {
       background: #ffffff;
-      padding: 18px 7%;
+      height: 72px;
+      padding: 0 7%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #e8ebf0;
+      justify-content: space-between;
+      border-bottom: 1px solid #e8ecf2;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
     }
 
     .logo {
-      font-size: 27px;
-      font-weight: 800;
+      font-size: 28px;
+      font-weight: 900;
       letter-spacing: 1px;
-      color: #13294b;
+      color: #102a43;
     }
 
     .logo span {
-      color: #f28c28;
+      color: #f59e0b;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
     }
 
     nav a {
       text-decoration: none;
-      color: #26344d;
-      margin-left: 22px;
+      color: #344054;
       font-weight: 600;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #f59e0b;
     }
 
     .hero {
-      padding: 85px 7%;
-      background: linear-gradient(135deg, #eef4fb, #ffffff);
+      min-height: 610px;
+      padding: 100px 7%;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 85% 20%, #e8f1ff 0, transparent 35%),
+        linear-gradient(135deg, #f7faff, #ffffff);
     }
 
     .hero-content {
-      max-width: 900px;
+      max-width: 850px;
     }
 
-    .badge {
+    .tag {
       display: inline-block;
-      background: #fff1df;
-      color: #d96e00;
-      padding: 8px 15px;
-      border-radius: 30px;
-      font-weight: 700;
-      margin-bottom: 20px;
+      padding: 9px 16px;
+      border-radius: 50px;
+      background: #fff3df;
+      color: #d97706;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 22px;
     }
 
     h1 {
-      font-size: clamp(40px, 6vw, 68px);
-      line-height: 1.05;
-      margin-bottom: 22px;
-      color: #13294b;
+      font-size: clamp(45px, 7vw, 78px);
+      line-height: 1.02;
+      letter-spacing: -2px;
+      margin-bottom: 25px;
     }
 
     h1 span {
-      color: #f28c28;
+      color: #f59e0b;
     }
 
-    .hero p {
-      max-width: 680px;
-      font-size: 19px;
-      color: #596579;
-      margin-bottom: 30px;
+    .hero-text {
+      font-size: 20px;
+      line-height: 1.7;
+      color: #667085;
+      max-width: 690px;
+      margin-bottom: 34px;
     }
 
     .buttons {
       display: flex;
-      gap: 14px;
+      gap: 15px;
       flex-wrap: wrap;
     }
 
     .btn {
-      display: inline-block;
-      padding: 14px 24px;
-      border-radius: 8px;
+      padding: 15px 25px;
+      border-radius: 9px;
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 800;
+      display: inline-block;
     }
 
     .primary {
-      background: #f28c28;
+      background: #f59e0b;
       color: white;
     }
 
-    .secondary {
-      background: #13294b;
+    .primary:hover {
+      background: #d97706;
+    }
+
+    .dark {
+      background: #102a43;
       color: white;
+    }
+
+    .dark:hover {
+      background: #0b1f33;
     }
 
     .section {
-      padding: 70px 7%;
+      padding: 85px 7%;
     }
 
-    .section-title {
+    .heading {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
 
-    .section-title h2 {
-      font-size: 34px;
-      color: #13294b;
-      margin-bottom: 8px;
+    .heading h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
     }
 
-    .section-title p {
+    .heading p {
       color: #667085;
+      font-size: 17px;
     }
 
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
+      gap: 22px;
     }
 
     .card {
       background: white;
-      padding: 28px;
-      border-radius: 14px;
-      border: 1px solid #e7eaf0;
-      box-shadow: 0 8px 25px rgba(20, 35, 60, 0.05);
+      border: 1px solid #e7ebf0;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 12px 30px rgba(16, 42, 67, 0.06);
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff3df;
+      font-size: 25px;
+      margin-bottom: 20px;
     }
 
     .card h3 {
-      color: #13294b;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      font-size: 20px;
     }
 
     .card p {
       color: #667085;
+      line-height: 1.6;
+    }
+
+    .employer {
+      background: #102a43;
+      color: white;
+      text-align: center;
+    }
+
+    .employer p {
+      max-width: 650px;
+      margin: 15px auto 30px;
+      color: #cbd8e8;
+      line-height: 1.7;
+    }
+
+    .jobs {
+      background: #f1f5f9;
+    }
+
+    .job-card {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .job-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .job-location {
+      color: #667085;
+      margin-bottom: 15px;
+    }
+
+    .job-btn {
+      display: inline-block;
+      padding: 10px 17px;
+      background: #f59e0b;
+      color: white;
+      text-decoration: none;
+      border-radius: 7px;
+      font-weight: 700;
     }
 
     .cta {
-      background: #13294b;
-      color: white;
       text-align: center;
-      padding: 70px 7%;
+      padding: 80px 7%;
+      background: white;
     }
 
     .cta h2 {
-      font-size: 36px;
+      font-size: 38px;
       margin-bottom: 15px;
     }
 
     .cta p {
-      color: #dce5f2;
-      margin-bottom: 25px;
+      color: #667085;
+      margin-bottom: 28px;
     }
 
     footer {
-      background: #0d1d35;
-      color: #b9c5d6;
-      padding: 30px 7%;
+      background: #091b2e;
+      color: #aebed0;
+      padding: 35px 7%;
       text-align: center;
     }
 
@@ -184,17 +268,21 @@
       color: white;
     }
 
-    @media (max-width: 700px) {
+    @media(max-width: 700px) {
       nav {
         display: none;
       }
 
       .hero {
-        padding: 60px 6%;
+        padding: 70px 6%;
       }
 
       .section {
-        padding: 55px 6%;
+        padding: 65px 6%;
+      }
+
+      h1 {
+        letter-spacing: -1px;
       }
     }
   </style>
@@ -203,111 +291,267 @@
 <body>
 
 <header>
-  <div class="logo">SHRAM<span>IQ</span></div>
+
+  <div class="logo">
+    SHRAM<span>IQ</span>
+  </div>
 
   <nav>
     <a href="#jobs">Jobs</a>
     <a href="#employers">Employers</a>
+    <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
+
 </header>
 
+
 <section class="hero">
+
   <div class="hero-content">
 
-    <div class="badge">Industrial Recruitment & Staffing</div>
+    <div class="tag">
+      INDUSTRIAL RECRUITMENT & STAFFING
+    </div>
 
     <h1>
       Smart Workforce.<br>
       <span>Strong Industry.</span>
     </h1>
 
-    <p>
-      SHRAMIQ connects industrial employers with reliable
-      skilled, semi-skilled and workforce talent across
-      Uttarakhand and North India.
+    <p class="hero-text">
+      SHRAMIQ connects factories and industrial employers
+      with reliable skilled, semi-skilled and entry-level
+      workforce across Uttarakhand and North India.
     </p>
 
     <div class="buttons">
-      <a href="#jobs" class="btn primary">Find a Job</a>
-      <a href="#employers" class="btn secondary">Hire Workforce</a>
+
+      <a href="#jobs" class="btn primary">
+        Find a Job
+      </a>
+
+      <a href="#employers" class="btn dark">
+        Hire Workforce
+      </a>
+
     </div>
 
   </div>
+
 </section>
+
 
 <section class="section" id="jobs">
 
-  <div class="section-title">
-    <h2>Find Industrial Jobs</h2>
-    <p>Explore opportunities across major industrial locations.</p>
+  <div class="heading">
+
+    <h2>Find Your Next Job</h2>
+
+    <p>
+      Explore opportunities across industrial and manufacturing sectors.
+    </p>
+
   </div>
 
   <div class="cards">
 
     <div class="card">
+      <div class="icon">🏭</div>
       <h3>Production</h3>
-      <p>Production workers and manufacturing staff.</p>
+      <p>
+        Production workers and manufacturing positions.
+      </p>
     </div>
 
     <div class="card">
+      <div class="icon">⚙️</div>
       <h3>Machine Operator</h3>
-      <p>Operators for industrial machinery and production lines.</p>
+      <p>
+        Machine operators and production-line workforce.
+      </p>
     </div>
 
     <div class="card">
+      <div class="icon">📦</div>
       <h3>Warehouse</h3>
-      <p>Warehouse, loading, packing and logistics positions.</p>
+      <p>
+        Packing, warehouse, loading and logistics jobs.
+      </p>
     </div>
 
     <div class="card">
+      <div class="icon">🔧</div>
       <h3>Technician</h3>
-      <p>Technical and maintenance opportunities.</p>
+      <p>
+        Technical, electrical and maintenance opportunities.
+      </p>
     </div>
 
   </div>
 
 </section>
 
-<section class="section" id="employers">
 
-  <div class="section-title">
-    <h2>Need Industrial Workforce?</h2>
+<section class="section employer" id="employers">
+
+  <div class="heading">
+
+    <h2>Need Reliable Workforce?</h2>
+
     <p>
-      Tell us your manpower requirement and our recruitment
-      team can help source suitable candidates.
+      Tell SHRAMIQ your manpower requirement.
+      We help industrial employers connect with suitable candidates.
     </p>
-  </div>
 
-  <div style="text-align:center;">
-    <a href="mailto:shramiq.in@gmail.com"
-       class="btn primary">
-      Submit Manpower Requirement
+    <a
+      href="mailto:shramiq.in@gmail.com?subject=Manpower Requirement"
+      class="btn primary">
+      Submit Requirement
     </a>
+
   </div>
 
 </section>
+
+
+<section class="section jobs">
+
+  <div class="heading">
+
+    <h2>Popular Industrial Locations</h2>
+
+    <p>
+      Building workforce connections across major industrial hubs.
+    </p>
+
+  </div>
+
+  <div class="cards">
+
+    <div class="job-card">
+      <h3>Haridwar</h3>
+      <p class="job-location">
+        SIDCUL & Industrial Area
+      </p>
+      <a href="#contact" class="job-btn">
+        View Jobs
+      </a>
+    </div>
+
+    <div class="job-card">
+      <h3>Rudrapur</h3>
+      <p class="job-location">
+        Pantnagar Industrial Area
+      </p>
+      <a href="#contact" class="job-btn">
+        View Jobs
+      </a>
+    </div>
+
+    <div class="job-card">
+      <h3>Kashipur</h3>
+      <p class="job-location">
+        Industrial & Manufacturing
+      </p>
+      <a href="#contact" class="job-btn">
+        View Jobs
+      </a>
+    </div>
+
+    <div class="job-card">
+      <h3>Roorkee</h3>
+      <p class="job-location">
+        Industrial & Manufacturing
+      </p>
+      <a href="#contact" class="job-btn">
+        View Jobs
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section" id="about">
+
+  <div class="heading">
+
+    <h2>Why SHRAMIQ?</h2>
+
+    <p>
+      We are building a technology-driven workforce network
+      connecting people and industry.
+    </p>
+
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="icon">👷</div>
+      <h3>Candidate First</h3>
+      <p>
+        Helping candidates discover genuine industrial opportunities.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🏢</div>
+      <h3>Industry Focused</h3>
+      <p>
+        Focused on the real workforce requirements of factories.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🤝</div>
+      <h3>Better Matching</h3>
+      <p>
+        Connecting the right workforce with the right industrial requirement.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
 
 <section class="cta" id="contact">
 
-  <h2>Build Your Workforce With SHRAMIQ</h2>
+  <h2>Ready to Connect?</h2>
 
   <p>
-    Connecting people with genuine industrial opportunities.
+    Looking for a job or hiring industrial workforce?
   </p>
 
-  <a href="mailto:shramiq.in@gmail.com"
-     class="btn primary">
-    Contact SHRAMIQ
-  </a>
+  <div class="buttons" style="justify-content:center;">
+
+    <a
+      href="mailto:shramiq.in@gmail.com?subject=Candidate Registration"
+      class="btn primary">
+      I'm Looking for a Job
+    </a>
+
+    <a
+      href="mailto:shramiq.in@gmail.com?subject=Factory Manpower Requirement"
+      class="btn dark">
+      I'm Hiring
+    </a>
+
+  </div>
 
 </section>
 
+
 <footer>
+
   <p>
-    © 2026 <strong>SHRAMIQ</strong>.
-    Industrial Recruitment & Staffing.
+    © 2026 <strong>SHRAMIQ</strong> —
+    Industrial Recruitment & Staffing
   </p>
+
 </footer>
 
 </body>

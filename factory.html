@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Factory Registration | SHRAMIQ</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fa;
+      color: #172033;
+    }
+
+    header {
+      background: white;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      color: #102a43;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #f59e0b;
+    }
+
+    header a {
+      text-decoration: none;
+      color: #344054;
+      font-weight: 700;
+    }
+
+    .hero {
+      background: #102a43;
+      color: white;
+      padding: 55px 7%;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: #d5dfeb;
+      font-size: 17px;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 45px auto;
+      padding: 0 20px;
+    }
+
+    .form-box {
+      background: white;
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+    }
+
+    .form-title {
+      margin-bottom: 30px;
+    }
+
+    .form-title h2 {
+      color: #102a43;
+      margin-bottom: 8px;
+    }
+
+    .form-title p {
+      color: #667085;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #344054;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #d0d5dd;
+      border-radius: 8px;
+      font-size: 15px;
+      outline: none;
+      background: white;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #f59e0b;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 9px;
+      background: #f59e0b;
+      color: white;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #d97706;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    #message {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .success {
+      display: block !important;
+      background: #ecfdf3;
+      color: #027a48;
+    }
+
+    .error {
+      display: block !important;
+      background: #fef3f2;
+      color: #b42318;
+    }
+
+    .note {
+      text-align: center;
+      margin-top: 18px;
+      color: #667085;
+      font-size: 13px;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 30px;
+      background: #091b2e;
+      color: #aebed0;
+      text-align: center;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media(max-width: 700px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .full {
+        grid-column: auto;
+      }
+
+      .form-box {
+        padding: 25px 20px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    SHRAM<span>IQ</span>
+  </div>
+
+  <a href="index.html">
+    ← Back to Home
+  </a>
+
+</header>
+
+
+<section class="hero">
+
+  <h1>Factory Registration</h1>
+
+  <p>
+    Tell SHRAMIQ about your staffing requirements.
+  </p>
+
+</section>
+
+
+<div class="container">
+
+  <div class="form-box">
+
+    <div class="form-title">
+
+      <h2>Hire the Right Workforce</h2>
+
+      <p>
+        Submit your requirement and our recruitment team will contact you.
+      </p>
+
+    </div>
+
+
+    <form id="factoryForm">
+
+      <div class="grid">
+
+        <div class="field">
+
+          <label>Company / Factory Name *</label>
+
+          <input
+            type="text"
+            id="company_name"
+            placeholder="Company name"
+            required
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Contact Person *</label>
+
+          <input
+            type="text"
+            id="contact_person"
+            placeholder="HR / Manager name"
+            required
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Mobile Number *</label>
+
+          <input
+            type="tel"
+            id="mobile"
+            maxlength="10"
+            pattern="[0-9]{10}"
+            placeholder="10 digit mobile number"
+            required
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Email Address</label>
+
+          <input
+            type="email"
+            id="email"
+            placeholder="HR email"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Factory Location *</label>
+
+          <input
+            type="text"
+            id="location"
+            placeholder="City / Industrial Area"
+            required
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Job Role / Vacancy *</label>
+
+          <input
+            type="text"
+            id="vacancy"
+            placeholder="e.g. Machine Operator"
+            required
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Workers Required *</label>
+
+          <input
+            type="number"
+            id="workers_required"
+            min="1"
+            placeholder="Number of workers"
+            required
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Salary Offered</label>
+
+          <input
+            type="text"
+            id="salary"
+            placeholder="e.g. ₹15,000 - ₹18,000"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Shift</label>
+
+          <select id="shift">
+
+            <option value="">Select Shift</option>
+
+            <option>Day Shift</option>
+
+            <option>Night Shift</option>
+
+            <option>Rotational Shift</option>
+
+            <option>General Shift</option>
+
+          </select>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Qualification</label>
+
+          <input
+            type="text"
+            id="qualification"
+            placeholder="e.g. 10th / 12th / ITI"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Expected Joining Date</label>
+
+          <input
+            type="date"
+            id="joining_date"
+          >
+
+        </div>
+
+
+        <div class="field full">
+
+          <label>Additional Requirement</label>
+
+          <textarea
+            id="additional_information"
+            placeholder="Experience, gender preference, accommodation, food, transport, etc."
+          ></textarea>
+
+        </div>
+
+      </div>
+
+
+      <button type="submit" id="submitBtn">
+        Submit Requirement
+      </button>
+
+
+      <div id="message"></div>
+
+
+      <div class="note">
+        Your information will be used only for recruitment and staffing purposes.
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<footer>
+
+  © 2026 <strong>SHRAMIQ</strong> —
+  Industrial Recruitment & Staffing
+
+</footer>
+
+
+<script>
+
+const SUPABASE_URL =
+"https://kudimdzsoremjsjajmnd.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_dY-hms5DXZ6n2RvB5N-9oA_9NsdgjxI";
+
+
+const form =
+document.getElementById("factoryForm");
+
+const button =
+document.getElementById("submitBtn");
+
+const message =
+document.getElementById("message");
+
+
+form.addEventListener("submit", async function(event) {
+
+  event.preventDefault();
+
+  button.disabled = true;
+
+  button.textContent = "Submitting...";
+
+  message.className = "";
+
+  message.style.display = "none";
+
+
+  const factory = {
+
+    company_name:
+      document.getElementById("company_name").value.trim(),
+
+    contact_person:
+      document.getElementById("contact_person").value.trim(),
+
+    mobile:
+      document.getElementById("mobile").value.trim(),
+
+    email:
+      document.getElementById("email").value.trim() || null,
+
+    location:
+      document.getElementById("location").value.trim(),
+
+    vacancy:
+      document.getElementById("vacancy").value.trim(),
+
+    workers_required:
+      Number(document.getElementById("workers_required").value),
+
+    salary:
+      document.getElementById("salary").value.trim() || null,
+
+    shift:
+      document.getElementById("shift").value || null,
+
+    qualification:
+      document.getElementById("qualification").value.trim() || null,
+
+    joining_date:
+      document.getElementById("joining_date").value || null,
+
+    additional_information:
+      document.getElementById("additional_information").value.trim() || null
+
+  };
+
+
+  try {
+
+    const response = await fetch(
+
+      SUPABASE_URL + "/rest/v1/factories",
+
+      {
+
+        method: "POST",
+
+        headers: {
+
+          "apikey": SUPABASE_KEY,
+
+          "Authorization":
+            "Bearer " + SUPABASE_KEY,
+
+          "Content-Type":
+            "application/json",
+
+          "Prefer":
+            "return=minimal"
+
+        },
+
+        body:
+          JSON.stringify(factory)
+
+      }
+
+    );
+
+
+    if (!response.ok) {
+
+      const errorText =
+        await response.text();
+
+      throw new Error(errorText);
+
+    }
+
+
+    message.textContent =
+      "✅ Requirement submitted successfully! SHRAMIQ team will contact you shortly.";
+
+    message.className =
+      "success";
+
+    form.reset();
+
+  }
+
+
+  catch (error) {
+
+    console.error(error);
+
+    message.textContent =
+      "❌ Submission failed. Please try again later.";
+
+    message.className =
+      "error";
+
+  }
+
+
+  finally {
+
+    button.disabled = false;
+
+    button.textContent =
+      "Submit Requirement";
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Candidate Registration | SHRAMIQ</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fa;
+      color: #172033;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      color: #102a43;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #f59e0b;
+    }
+
+    header a {
+      text-decoration: none;
+      color: #344054;
+      font-weight: 700;
+    }
+
+    .hero {
+      background: #102a43;
+      color: white;
+      padding: 55px 7%;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: #d5dfeb;
+      font-size: 17px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 45px auto;
+      padding: 0 20px;
+    }
+
+    .form-box {
+      background: white;
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+    }
+
+    .form-title {
+      margin-bottom: 30px;
+    }
+
+    .form-title h2 {
+      color: #102a43;
+      margin-bottom: 8px;
+    }
+
+    .form-title p {
+      color: #667085;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #344054;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #d0d5dd;
+      border-radius: 8px;
+      font-size: 15px;
+      outline: none;
+      background: white;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #f59e0b;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .consent {
+      margin-top: 25px;
+      padding: 15px;
+      background: #f8fafc;
+      border-radius: 8px;
+      color: #667085;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .consent input {
+      width: auto;
+      margin-right: 8px;
+    }
+
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 9px;
+      background: #f59e0b;
+      color: white;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #d97706;
+    }
+
+    .note {
+      text-align: center;
+      margin-top: 18px;
+      color: #667085;
+      font-size: 13px;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 30px;
+      background: #091b2e;
+      color: #aebed0;
+      text-align: center;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media(max-width: 700px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .full {
+        grid-column: auto;
+      }
+
+      .form-box {
+        padding: 25px 20px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    SHRAM<span>IQ</span>
+  </div>
+
+  <a href="index.html">
+    ← Back to Home
+  </a>
+
+</header>
+
+
+<section class="hero">
+
+  <h1>Candidate Registration</h1>
+
+  <p>
+    Register with SHRAMIQ and discover suitable industrial job opportunities.
+  </p>
+
+</section>
+
+
+<div class="container">
+
+  <div class="form-box">
+
+    <div class="form-title">
+
+      <h2>Your Career Starts Here</h2>
+
+      <p>
+        Please provide accurate information so we can understand your
+        profile and contact you for suitable opportunities.
+      </p>
+
+    </div>
+
+
+    <form>
+
+      <div class="grid">
+
+        <div class="field">
+          <label>Full Name *</label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter your full name"
+            required>
+        </div>
+
+
+        <div class="field">
+          <label>Mobile Number *</label>
+          <input
+            type="tel"
+            name="mobile"
+            placeholder="10 digit mobile number"
+            pattern="[0-9]{10}"
+            required>
+        </div>
+
+
+        <div class="field">
+          <label>WhatsApp Number</label>
+          <input
+            type="tel"
+            name="whatsapp"
+            placeholder="WhatsApp number">
+        </div>
+
+
+        <div class="field">
+          <label>Age *</label>
+          <input
+            type="number"
+            name="age"
+            min="18"
+            max="65"
+            placeholder="Your age"
+            required>
+        </div>
+
+
+        <div class="field">
+          <label>Current District *</label>
+          <input
+            type="text"
+            name="district"
+            placeholder="e.g. Bijnor"
+            required>
+        </div>
+
+
+        <div class="field">
+          <label>Current State *</label>
+
+          <select name="state" required>
+
+            <option value="">
+              Select State
+            </option>
+
+            <option>Uttar Pradesh</option>
+            <option>Uttarakhand</option>
+            <option>Delhi</option>
+            <option>Haryana</option>
+            <option>Punjab</option>
+            <option>Rajasthan</option>
+            <option>Himachal Pradesh</option>
+            <option>Other</option>
+
+          </select>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Education *</label>
+
+          <select name="education" required>
+
+            <option value="">
+              Select Education
+            </option>
+
+            <option>8th Pass</option>
+            <option>10th Pass</option>
+            <option>12th Pass</option>
+            <option>ITI</option>
+            <option>Diploma</option>
+            <option>Graduate</option>
+            <option>Post Graduate</option>
+            <option>Other</option>
+
+          </select>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Work Experience *</label>
+
+          <select name="experience" required>
+
+            <option value="">
+              Select Experience
+            </option>
+
+            <option>Fresher</option>
+            <option>Less than 1 Year</option>
+            <option>1–2 Years</option>
+            <option>2–5 Years</option>
+            <option>5+ Years</option>
+
+          </select>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Primary Skill / Job Role *</label>
+
+          <input
+            type="text"
+            name="skill"
+            placeholder="e.g. Machine Operator"
+            required>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Expected Monthly Salary</label>
+
+          <input
+            type="number"
+            name="salary"
+            placeholder="e.g. 15000">
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Preferred Job Location *</label>
+
+          <select name="location" required>
+
+            <option value="">
+              Select Location
+            </option>
+
+            <option>Haridwar</option>
+            <option>Roorkee</option>
+            <option>Rudrapur</option>
+            <option>Pantnagar</option>
+            <option>Kashipur</option>
+            <option>Sitarganj</option>
+            <option>Bijnor</option>
+            <option>Any Location</option>
+
+          </select>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Preferred Job Type *</label>
+
+          <select name="jobtype" required>
+
+            <option value="">
+              Select Job Type
+            </option>
+
+            <option>Production</option>
+            <option>Machine Operator</option>
+            <option>Warehouse</option>
+            <option>Packing</option>
+            <option>Technician</option>
+            <option>Security</option>
+            <option>Helper</option>
+            <option>Other</option>
+
+          </select>
+
+        </div>
+
+
+        <div class="field full">
+
+          <label>Additional Information</label>
+
+          <textarea
+            name="message"
+            placeholder="Tell us about your previous work, skills or job preference">
+          </textarea>
+
+        </div>
+
+      </div>
+
+
+      <div class="consent">
+
+        <label>
+
+          <input
+            type="checkbox"
+            required>
+
+          I confirm that the information provided by me is
+          accurate and I agree to be contacted by SHRAMIQ
+          regarding suitable job opportunities.
+
+        </label>
+
+      </div>
+
+
+      <button type="submit">
+        Submit Registration
+      </button>
+
+
+      <div class="note">
+        Your information will be used only for recruitment-related communication.
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<footer>
+
+  © 2026 <strong>SHRAMIQ</strong> —
+  Industrial Recruitment & Staffing
+
+</footer>
+
+</body>
+</html>

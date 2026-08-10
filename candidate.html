@@ -20,7 +20,7 @@
     }
 
     header {
-      background: #ffffff;
+      background: white;
       padding: 18px 7%;
       display: flex;
       justify-content: space-between;
@@ -164,6 +164,32 @@
       background: #d97706;
     }
 
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    #message {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .success {
+      display: block !important;
+      background: #ecfdf3;
+      color: #027a48;
+    }
+
+    .error {
+      display: block !important;
+      background: #fef3f2;
+      color: #b42318;
+    }
+
     .note {
       text-align: center;
       margin-top: 18px;
@@ -217,7 +243,6 @@
 
 </header>
 
-
 <section class="hero">
 
   <h1>Candidate Registration</h1>
@@ -227,7 +252,6 @@
   </p>
 
 </section>
-
 
 <div class="container">
 
@@ -244,72 +268,40 @@
 
     </div>
 
-
-    <form>
+    <form id="candidateForm">
 
       <div class="grid">
 
         <div class="field">
           <label>Full Name *</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Enter your full name"
-            required>
+          <input type="text" id="full_name" required>
         </div>
-
 
         <div class="field">
           <label>Mobile Number *</label>
-          <input
-            type="tel"
-            name="mobile"
-            placeholder="10 digit mobile number"
-            pattern="[0-9]{10}"
-            required>
+          <input type="tel" id="mobile" pattern="[0-9]{10}" maxlength="10" required>
         </div>
-
 
         <div class="field">
           <label>WhatsApp Number</label>
-          <input
-            type="tel"
-            name="whatsapp"
-            placeholder="WhatsApp number">
+          <input type="tel" id="whatsapp" pattern="[0-9]{10}" maxlength="10">
         </div>
-
 
         <div class="field">
           <label>Age *</label>
-          <input
-            type="number"
-            name="age"
-            min="18"
-            max="65"
-            placeholder="Your age"
-            required>
+          <input type="number" id="age" min="18" max="65" required>
         </div>
-
 
         <div class="field">
           <label>Current District *</label>
-          <input
-            type="text"
-            name="district"
-            placeholder="e.g. Bijnor"
-            required>
+          <input type="text" id="district" required>
         </div>
-
 
         <div class="field">
           <label>Current State *</label>
 
-          <select name="state" required>
-
-            <option value="">
-              Select State
-            </option>
-
+          <select id="state" required>
+            <option value="">Select State</option>
             <option>Uttar Pradesh</option>
             <option>Uttarakhand</option>
             <option>Delhi</option>
@@ -318,22 +310,15 @@
             <option>Rajasthan</option>
             <option>Himachal Pradesh</option>
             <option>Other</option>
-
           </select>
 
         </div>
 
-
         <div class="field">
-
           <label>Education *</label>
 
-          <select name="education" required>
-
-            <option value="">
-              Select Education
-            </option>
-
+          <select id="education" required>
+            <option value="">Select Education</option>
             <option>8th Pass</option>
             <option>10th Pass</option>
             <option>12th Pass</option>
@@ -342,68 +327,39 @@
             <option>Graduate</option>
             <option>Post Graduate</option>
             <option>Other</option>
-
           </select>
 
         </div>
 
-
         <div class="field">
-
           <label>Work Experience *</label>
 
-          <select name="experience" required>
-
-            <option value="">
-              Select Experience
-            </option>
-
+          <select id="experience" required>
+            <option value="">Select Experience</option>
             <option>Fresher</option>
             <option>Less than 1 Year</option>
             <option>1–2 Years</option>
             <option>2–5 Years</option>
             <option>5+ Years</option>
-
           </select>
 
         </div>
 
-
         <div class="field">
-
           <label>Primary Skill / Job Role *</label>
-
-          <input
-            type="text"
-            name="skill"
-            placeholder="e.g. Machine Operator"
-            required>
-
+          <input type="text" id="primary_skill" placeholder="e.g. Machine Operator" required>
         </div>
 
-
         <div class="field">
-
           <label>Expected Monthly Salary</label>
-
-          <input
-            type="number"
-            name="salary"
-            placeholder="e.g. 15000">
-
+          <input type="number" id="expected_salary">
         </div>
 
-
         <div class="field">
-
           <label>Preferred Job Location *</label>
 
-          <select name="location" required>
-
-            <option value="">
-              Select Location
-            </option>
-
+          <select id="preferred_location" required>
+            <option value="">Select Location</option>
             <option>Haridwar</option>
             <option>Roorkee</option>
             <option>Rudrapur</option>
@@ -412,22 +368,15 @@
             <option>Sitarganj</option>
             <option>Bijnor</option>
             <option>Any Location</option>
-
           </select>
 
         </div>
 
-
         <div class="field">
-
           <label>Preferred Job Type *</label>
 
-          <select name="jobtype" required>
-
-            <option value="">
-              Select Job Type
-            </option>
-
+          <select id="preferred_job_type" required>
+            <option value="">Select Job Type</option>
             <option>Production</option>
             <option>Machine Operator</option>
             <option>Warehouse</option>
@@ -436,18 +385,15 @@
             <option>Security</option>
             <option>Helper</option>
             <option>Other</option>
-
           </select>
 
         </div>
 
-
         <div class="field full">
-
           <label>Additional Information</label>
 
           <textarea
-            name="message"
+            id="additional_information"
             placeholder="Tell us about your previous work, skills or job preference">
           </textarea>
 
@@ -455,28 +401,23 @@
 
       </div>
 
-
       <div class="consent">
 
         <label>
+          <input type="checkbox" id="consent" required>
 
-          <input
-            type="checkbox"
-            required>
-
-          I confirm that the information provided by me is
-          accurate and I agree to be contacted by SHRAMIQ
-          regarding suitable job opportunities.
-
+          I confirm that the information provided by me is accurate
+          and I agree to be contacted by SHRAMIQ regarding suitable
+          job opportunities.
         </label>
 
       </div>
 
-
-      <button type="submit">
+      <button type="submit" id="submitBtn">
         Submit Registration
       </button>
 
+      <div id="message"></div>
 
       <div class="note">
         Your information will be used only for recruitment-related communication.
@@ -488,13 +429,142 @@
 
 </div>
 
-
 <footer>
 
   © 2026 <strong>SHRAMIQ</strong> —
   Industrial Recruitment & Staffing
 
 </footer>
+
+
+<script>
+
+const SUPABASE_URL =
+"https://kudimdzsoremjsjajmnd.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_dY-hms5DXZ6n2RvB5N-9oA_9NsdgjxI";
+
+
+const form = document.getElementById("candidateForm");
+const button = document.getElementById("submitBtn");
+const message = document.getElementById("message");
+
+
+form.addEventListener("submit", async function(event) {
+
+  event.preventDefault();
+
+  button.disabled = true;
+  button.textContent = "Submitting...";
+
+  message.className = "";
+  message.style.display = "none";
+
+  const candidate = {
+
+    full_name:
+      document.getElementById("full_name").value.trim(),
+
+    mobile:
+      document.getElementById("mobile").value.trim(),
+
+    whatsapp:
+      document.getElementById("whatsapp").value.trim() || null,
+
+    age:
+      Number(document.getElementById("age").value),
+
+    district:
+      document.getElementById("district").value.trim(),
+
+    state:
+      document.getElementById("state").value,
+
+    education:
+      document.getElementById("education").value,
+
+    experience:
+      document.getElementById("experience").value,
+
+    primary_skill:
+      document.getElementById("primary_skill").value.trim(),
+
+    expected_salary:
+      document.getElementById("expected_salary").value
+        ? Number(document.getElementById("expected_salary").value)
+        : null,
+
+    preferred_location:
+      document.getElementById("preferred_location").value,
+
+    preferred_job_type:
+      document.getElementById("preferred_job_type").value,
+
+    additional_information:
+      document.getElementById("additional_information").value.trim() || null
+
+  };
+
+
+  try {
+
+    const response = await fetch(
+      SUPABASE_URL + "/rest/v1/candidates",
+      {
+        method: "POST",
+
+        headers: {
+          "apikey": SUPABASE_KEY,
+          "Authorization": "Bearer " + SUPABASE_KEY,
+          "Content-Type": "application/json",
+          "Prefer": "return=minimal"
+        },
+
+        body: JSON.stringify(candidate)
+      }
+    );
+
+
+    if (!response.ok) {
+
+      const errorText = await response.text();
+
+      throw new Error(errorText);
+
+    }
+
+
+    message.textContent =
+      "✅ Registration successful! SHRAMIQ team will contact you for suitable job opportunities.";
+
+    message.className = "success";
+
+    form.reset();
+
+  }
+
+  catch (error) {
+
+    console.error(error);
+
+    message.textContent =
+      "❌ Registration failed. Please try again later.";
+
+    message.className = "error";
+
+  }
+
+  finally {
+
+    button.disabled = false;
+    button.textContent = "Submit Registration";
+
+  }
+
+});
+
+</script>
 
 </body>
 </html>

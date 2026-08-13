@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Login | SHRAMIQ</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f7fa;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.login-box{
+  width:100%;
+  max-width:430px;
+  background:#fff;
+  padding:35px;
+  border-radius:16px;
+  border:1px solid #e5e7eb;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.logo{
+  display:block;
+  width:150px;
+  margin:0 auto 25px;
+}
+
+h1{
+  text-align:center;
+  color:#102a43;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  text-align:center;
+  color:#667085;
+  margin-bottom:25px;
+  font-size:14px;
+}
+
+label{
+  display:block;
+  margin-bottom:7px;
+  color:#344054;
+  font-weight:700;
+  font-size:14px;
+}
+
+input{
+  width:100%;
+  padding:13px;
+  border:1px solid #d0d5dd;
+  border-radius:8px;
+  margin-bottom:18px;
+  font-size:15px;
+  outline:none;
+}
+
+input:focus{
+  border-color:#102a43;
+}
+
+button{
+  width:100%;
+  border:none;
+  background:#102a43;
+  color:white;
+  padding:13px;
+  border-radius:8px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#081d35;
+}
+
+button:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+
+.error{
+  display:none;
+  background:#fef3f2;
+  color:#b42318;
+  padding:12px;
+  border-radius:8px;
+  margin-bottom:18px;
+  font-size:14px;
+  font-weight:600;
+}
+
+.back{
+  text-align:center;
+  margin-top:20px;
+  font-size:14px;
+}
+
+.back a{
+  color:#102a43;
+  font-weight:700;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+  <img
+    src="shramiq-logo.png"
+    alt="SHRAMIQ"
+    class="logo"
+  >
+
+  <h1>Admin Login</h1>
+
+  <p class="subtitle">
+    Sign in to access SHRAMIQ Admin Dashboard
+  </p>
+
+  <div id="errorBox" class="error"></div>
+
+  <form id="loginForm">
+
+    <label for="email">
+      Email Address
+    </label>
+
+    <input
+      type="email"
+      id="email"
+      placeholder="Enter admin email"
+      required
+    >
+
+    <label for="password">
+      Password
+    </label>
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter password"
+      required
+    >
+
+    <button
+      type="submit"
+      id="loginBtn">
+      Login
+    </button>
+
+  </form>
+
+  <div class="back">
+    <a href="index.html">← Back to SHRAMIQ</a>
+  </div>
+
+</div>
+
+<script>
+
+const SUPABASE_URL =
+"https://kudimdzsoremjsjajmnd.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_dY-hms5DXZ6n2RvB5N-9oA_9NsdgjxI";
+
+
+const form =
+document.getElementById("loginForm");
+
+const loginBtn =
+document.getElementById("loginBtn");
+
+const errorBox =
+document.getElementById("errorBox");
+
+
+form.addEventListener("submit", async function(e){
+
+  e.preventDefault();
+
+  errorBox.style.display = "none";
+
+  loginBtn.disabled = true;
+  loginBtn.textContent = "Logging in...";
+
+
+  const email =
+    document.getElementById("email").value.trim();
+
+  const password =
+    document.getElementById("password").value;
+
+
+  try{
+
+    const response = await fetch(
+      SUPABASE_URL +
+      "/auth/v1/token?grant_type=password",
+      {
+        method:"POST",
+
+        headers:{
+          "apikey":SUPABASE_KEY,
+          "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+          email:email,
+          password:password
+        })
+      }
+    );
+
+
+    const data =
+      await response.json();
+
+
+    if(!response.ok){
+
+      throw new Error(
+        data.error_description ||
+        data.msg ||
+        "Invalid email or password."
+      );
+
+    }
+
+
+    localStorage.setItem(
+      "shramiq_access_token",
+      data.access_token
+    );
+
+    localStorage.setItem(
+      "shramiq_refresh_token",
+      data.refresh_token
+    );
+
+
+    window.location.href =
+      "admin.html";
+
+
+  }catch(error){
+
+    console.error(error);
+
+    errorBox.textContent =
+      error.message ||
+      "Login failed.";
+
+    errorBox.style.display =
+      "block";
+
+  }
+
+
+  loginBtn.disabled = false;
+  loginBtn.textContent = "Login";
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SHRAMIQ | Industrial Recruitment & Staffing</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
-  <meta name="description"
-        content="SHRAMIQ connects candidates with industrial jobs and helps factories find the right workforce.">
+  <title>Admin Dashboard | SHRAMIQ</title>
 
   <style>
 
@@ -17,961 +19,1452 @@
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fa;
       color: #172033;
-      background: #ffffff;
-      line-height: 1.6;
     }
-
-    /* HEADER */
 
     header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 14px 5%;
       position: sticky;
       top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,0.97);
-      border-bottom: 1px solid #e5e7eb;
-      padding: 10px 6%;
+      z-index: 100;
     }
 
-    .nav {
-      max-width: 1200px;
+    .header-inner {
+      max-width: 1250px;
       margin: auto;
-      min-height: 75px;
+      min-height: 65px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 25px;
+      gap: 15px;
     }
 
-    .site-logo {
-      width: 155px;
-      height: auto;
-      display: block;
+    .logo {
+      width: 145px;
+      background: white;
     }
 
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
+    .admin-title {
+      color: #102a43;
+      font-weight: 800;
+      font-size: 18px;
     }
 
-    nav a {
-      text-decoration: none;
-      color: #172033;
-      font-weight: 700;
-      font-size: 15px;
-    }
-
-    nav a:hover {
-      color: #f59e0b;
-    }
-
-    .nav-button {
+    .logout-btn {
+      border: none;
       background: #102a43;
-      color: white !important;
-      padding: 11px 18px;
-      border-radius: 8px;
-    }
-
-    /* HERO */
-
-    .hero {
-      background:
-        linear-gradient(135deg, #081d35, #12395d);
       color: white;
-      padding: 95px 6%;
-      overflow: hidden;
+      padding: 10px 17px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
     }
 
-    .hero-inner {
-      max-width: 1200px;
-      margin: auto;
+    .logout-btn:hover {
+      background: #081d35;
+    }
+
+    .container {
+      max-width: 1250px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .welcome {
+      margin-bottom: 25px;
+    }
+
+    .welcome h1 {
+      color: #102a43;
+      font-size: 32px;
+      margin-bottom: 5px;
+    }
+
+    .welcome p {
+      color: #667085;
+    }
+
+    .stats {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      align-items: center;
-      gap: 50px;
-    }
-
-    .hero h1 {
-      font-size: 52px;
-      line-height: 1.12;
-      margin-bottom: 22px;
-    }
-
-    .hero h1 span {
-      color: #fbbf24;
-    }
-
-    .hero p {
-      max-width: 650px;
-      color: #d7e3ef;
-      font-size: 19px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
       margin-bottom: 30px;
     }
 
-    .hero-buttons {
+    .stat-card {
+      background: white;
+      border-radius: 14px;
+      padding: 25px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 32px;
+      color: #102a43;
+      margin-bottom: 5px;
+    }
+
+    .stat-card span {
+      color: #667085;
+      font-size: 14px;
+    }
+
+    .section {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 30px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+    }
+
+    .section-header {
       display: flex;
+      justify-content: space-between;
+      align-items: center;
       gap: 15px;
+      margin-bottom: 20px;
       flex-wrap: wrap;
     }
 
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      padding: 14px 23px;
-      border-radius: 9px;
-      font-weight: 800;
+    .section-header h2 {
+      color: #102a43;
+      font-size: 23px;
     }
 
-    .btn-primary {
-      background: #f59e0b;
-      color: white;
-    }
-
-    .btn-secondary {
-      border: 1px solid #d8e3ef;
-      color: white;
-    }
-
-    .btn-secondary:hover {
+    .refresh-btn {
+      border: 1px solid #d0d5dd;
       background: white;
       color: #102a43;
+      padding: 9px 15px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-weight: 700;
     }
 
-    .hero-card {
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 20px;
-      padding: 35px;
-      backdrop-filter: blur(8px);
+    .refresh-btn:hover {
+      background: #f5f7fa;
     }
 
-    .hero-card h2 {
-      margin-bottom: 15px;
-      font-size: 25px;
-    }
-
-    .hero-card p {
-      font-size: 16px;
-      margin-bottom: 0;
-    }
-
-    /* STATS */
-
-    .stats {
-      max-width: 1100px;
-      margin: -35px auto 0;
-      position: relative;
-      z-index: 5;
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.09);
-      overflow: hidden;
-    }
-
-    .stat {
-      text-align: center;
-      padding: 25px 15px;
-      border-right: 1px solid #eaecf0;
-    }
-
-    .stat:last-child {
-      border-right: none;
-    }
-
-    .stat strong {
-      display: block;
-      color: #102a43;
-      font-size: 27px;
-    }
-
-    .stat span {
-      color: #667085;
-      font-size: 14px;
-    }
-
-    /* COMMON */
-
-    section {
-      padding: 85px 6%;
-    }
-
-    .section-inner {
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .section-heading {
-      text-align: center;
-      max-width: 750px;
-      margin: 0 auto 45px;
-    }
-
-    .section-heading h2 {
-      color: #102a43;
-      font-size: 37px;
-      margin-bottom: 12px;
-    }
-
-    .section-heading p {
-      color: #667085;
-      font-size: 17px;
-    }
-
-    /* SERVICES */
-
-    .services {
-      background: #f8fafc;
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 25px;
-    }
-
-    .service-card {
-      background: white;
-      border: 1px solid #eaecf0;
-      border-radius: 15px;
-      padding: 30px;
-      transition: 0.25s;
-    }
-
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-    }
-
-    .icon {
-      width: 52px;
-      height: 52px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      background: #fff7e6;
-      color: #d97706;
-      font-size: 25px;
-      margin-bottom: 20px;
-    }
-
-    .service-card h3 {
-      color: #102a43;
-      margin-bottom: 10px;
-    }
-
-    .service-card p {
-      color: #667085;
+    .search {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #d0d5dd;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      outline: none;
       font-size: 15px;
     }
 
-    /* HOW IT WORKS */
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 30px;
+    .search:focus {
+      border-color: #f59e0b;
     }
 
-    .step {
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 850px;
+    }
+
+    th {
+      text-align: left;
+      background: #f8fafc;
+      color: #344054;
+      padding: 13px;
+      font-size: 13px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    td {
+      padding: 13px;
+      border-bottom: 1px solid #eaecf0;
+      color: #475467;
+      font-size: 14px;
+      vertical-align: top;
+    }
+
+    tr:hover td {
+      background: #fcfcfd;
+    }
+
+    .empty {
       text-align: center;
-      padding: 25px;
-    }
-
-    .step-number {
-      width: 55px;
-      height: 55px;
-      margin: 0 auto 18px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #102a43;
-      color: white;
-      font-weight: 900;
-      font-size: 20px;
-    }
-
-    .step h3 {
-      color: #102a43;
-      margin-bottom: 8px;
-    }
-
-    .step p {
+      padding: 30px;
       color: #667085;
     }
 
-    /* CTA */
-
-    .cta {
-      background: #102a43;
-      color: white;
+    .loading {
       text-align: center;
+      padding: 25px;
+      color: #667085;
     }
 
-    .cta h2 {
-      font-size: 38px;
-      margin-bottom: 15px;
+    .error {
+      display: none;
+      background: #fef3f2;
+      color: #b42318;
+      padding: 14px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-weight: 700;
     }
 
-    .cta p {
-      color: #d7e3ef;
-      max-width: 650px;
-      margin: 0 auto 28px;
+    .badge {
+      display: inline-block;
+      padding: 5px 9px;
+      background: #fff7e6;
+      color: #b54708;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
     }
-
-    /* FOOTER */
 
     footer {
+      margin-top: 50px;
       background: #071a2d;
       color: #aebed0;
-      padding: 50px 6% 25px;
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 40px;
-    }
-
-    .footer-logo {
-      width: 155px;
-      background: white;
-      padding: 5px;
-      border-radius: 6px;
-      margin-bottom: 15px;
-    }
-
-    footer h3 {
-      color: white;
-      margin-bottom: 15px;
-    }
-
-    footer a {
-      display: block;
-      color: #aebed0;
-      text-decoration: none;
-      margin-bottom: 8px;
-    }
-
-    footer a:hover {
-      color: #fbbf24;
-    }
-
-    .contact-info {
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    .contact-info a {
-      display: inline;
-    }
-
-    .copyright {
-      max-width: 1200px;
-      margin: 40px auto 0;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.12);
+      padding: 25px;
       text-align: center;
       font-size: 13px;
     }
 
-    /* MOBILE */
+    @media(max-width: 700px) {
 
-    @media(max-width: 850px) {
-
-      .nav {
-        min-height: 65px;
+      .header-inner {
+        min-height: 55px;
       }
 
-      nav {
-        gap: 8px;
+      .logo {
+        width: 120px;
       }
 
-      nav a:not(.nav-button) {
+      .admin-title {
         display: none;
       }
 
-      .site-logo {
-        width: 130px;
-      }
-
-      .hero {
-        padding: 65px 6%;
-      }
-
-      .hero-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 40px;
-      }
-
       .stats {
-        margin: 0 20px;
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .stat:nth-child(2) {
-        border-right: none;
-      }
-
-      .stat {
-        border-bottom: 1px solid #eaecf0;
-      }
-
-      .service-grid,
-      .steps {
         grid-template-columns: 1fr;
       }
 
-      .footer-inner {
-        grid-template-columns: 1fr;
+      .container {
+        margin-top: 25px;
       }
 
-    }
-
-    @media(max-width: 500px) {
-
-      .hero h1 {
-        font-size: 34px;
+      .welcome h1 {
+        font-size: 27px;
       }
 
-      .hero p {
-        font-size: 16px;
-      }
-
-      .section-heading h2 {
-        font-size: 30px;
-      }
-
-      .cta h2 {
-        font-size: 30px;
-      }
-
-      .stats {
-        margin: 0 10px;
+      .section {
+        padding: 18px;
       }
 
     }
 
   </style>
+
 </head>
 
 
 <body>
 
 
-<!-- ================= HEADER ================= -->
-
 <header>
 
-  <div class="nav">
+  <div class="header-inner">
 
     <a href="index.html">
 
       <img
         src="shramiq-logo.png"
         alt="SHRAMIQ"
-        class="site-logo">
+        class="logo">
 
     </a>
 
+    <div class="admin-title">
+      Admin Dashboard
+    </div>
 
-    <nav>
+    <button
+      class="logout-btn"
+      id="logoutBtn">
 
-      <a href="#services">
-        Services
-      </a>
+      Logout
 
-      <a href="#how">
-        How It Works
-      </a>
-
-      <a href="about.html">
-        About Us
-      </a>
-
-      <a href="contact.html">
-        Contact
-      </a>
-
-      <a
-        href="candidate.html"
-        class="nav-button">
-        Find a Job
-      </a>
-
-    </nav>
+    </button>
 
   </div>
 
 </header>
 
 
-<!-- ================= HERO ================= -->
-
-<section class="hero">
-
-  <div class="hero-inner">
-
-    <div>
-
-      <h1>
-        Connecting
-        <span>People</span>
-        With
-        <span>Opportunity.</span>
-      </h1>
-
-      <p>
-        SHRAMIQ connects skilled candidates with trusted
-        industrial employers and helps factories build the
-        right workforce.
-      </p>
+<div class="container">
 
 
-      <div class="hero-buttons">
+  <div class="welcome">
 
-        <a
-          href="candidate.html"
-          class="btn btn-primary">
-          Find a Job →
-        </a>
+    <h1>
+      SHRAMIQ Admin Dashboard
+    </h1>
 
-        <a
-          href="factory.html"
-          class="btn btn-secondary">
-          Hire Workforce →
-        </a>
+    <p>
+      Manage candidate registrations and factory staffing requirements.
+    </p>
 
-      </div>
+  </div>
+
+
+  <div
+    id="errorBox"
+    class="error">
+  </div>
+
+
+  <!-- ================= STATS ================= -->
+
+  <div class="stats">
+
+
+    <div class="stat-card">
+
+      <strong id="candidateCount">
+        -
+      </strong>
+
+      <span>
+        Registered Candidates
+      </span>
 
     </div>
 
 
-    <div class="hero-card">
+    <div class="stat-card">
+
+      <strong id="factoryCount">
+        -
+      </strong>
+
+      <span>
+        Factory Requirements
+      </span>
+
+    </div>
+
+
+    <div class="stat-card">
+
+      <strong id="workerCount">
+        -
+      </strong>
+
+      <span>
+        Total Workers Required
+      </span>
+
+    </div>
+
+
+  </div>
+
+
+  <!-- ================= CANDIDATES ================= -->
+
+  <div class="section">
+
+
+    <div class="section-header">
 
       <h2>
-        Right People. Right Skills. Right Jobs.
+        Candidate Registrations
       </h2>
 
-      <p>
-        A modern recruitment platform designed for
-        industrial staffing across North India.
-      </p>
+      <button
+        class="refresh-btn"
+        onclick="loadDashboard()">
+
+        ↻ Refresh
+
+      </button>
+
+    </div>
+
+
+    <input
+      type="text"
+      id="candidateSearch"
+      class="search"
+      placeholder="Search candidate by name, mobile, district or skill...">
+
+
+    <div
+      id="candidateLoading"
+      class="loading">
+
+      Loading candidates...
+
+    </div>
+
+
+    <div class="table-wrapper">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>Name</th>
+
+            <th>Mobile</th>
+
+            <th>Location</th>
+
+            <th>Education</th>
+
+            <th>Experience</th>
+
+            <th>Skill</th>
+
+            <th>Preferred Job</th>
+
+          </tr>
+
+        </thead>
+
+
+        <tbody id="candidateBody">
+
+        </tbody>
+
+      </table>
 
     </div>
 
   </div>
 
-</section>
+
+  <!-- ================= FACTORIES ================= -->
+
+  <div class="section">
 
 
-<!-- ================= STATS ================= -->
+    <div class="section-header">
 
-<div class="stats">
+      <h2>
+        Factory Requirements
+      </h2>
 
-  <div class="stat">
+      <button
+        class="refresh-btn"
+        onclick="loadDashboard()">
 
-    <strong>100%</strong>
+        ↻ Refresh
 
-    <span>
-      Recruitment Focus
-    </span>
+      </button>
+
+    </div>
+
+
+    <input
+      type="text"
+      id="factorySearch"
+      class="search"
+      placeholder="Search factory, contact person, location or vacancy...">
+
+
+    <div
+      id="factoryLoading"
+      class="loading">
+
+      Loading factory requirements...
+
+    </div>
+
+
+    <div class="table-wrapper">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>Company</th>
+
+            <th>Contact</th>
+
+            <th>Mobile</th>
+
+            <th>Location</th>
+
+            <th>Vacancy</th>
+
+            <th>Workers</th>
+
+            <th>Salary</th>
+
+            <th>Shift</th>
+
+          </tr>
+
+        </thead>
+
+
+        <tbody id="factoryBody">
+
+        </tbody>
+
+      </table>
+
+    </div>
 
   </div>
 
-
-  <div class="stat">
-
-    <strong>24×7</strong>
-
-    <span>
-      Candidate Registration
-    </span>
-
-  </div>
-
-
-  <div class="stat">
-
-    <strong>Fast</strong>
-
-    <span>
-      Vacancy Response
-    </span>
-
-  </div>
-
-
-  <div class="stat">
-
-    <strong>Smart</strong>
-
-    <span>
-      Job Matching
-    </span>
-
-  </div>
 
 </div>
 
 
-<!-- ================= SERVICES ================= -->
-
-<section
-  class="services"
-  id="services">
-
-  <div class="section-inner">
-
-    <div class="section-heading">
-
-      <h2>
-        What SHRAMIQ Does
-      </h2>
-
-      <p>
-        Simple recruitment solutions for candidates
-        and industrial employers.
-      </p>
-
-    </div>
-
-
-    <div class="service-grid">
-
-
-      <div class="service-card">
-
-        <div class="icon">
-          👷
-        </div>
-
-        <h3>
-          Candidate Recruitment
-        </h3>
-
-        <p>
-          Candidates can register their skills,
-          experience and preferred job location
-          and get connected with suitable opportunities.
-        </p>
-
-      </div>
-
-
-      <div class="service-card">
-
-        <div class="icon">
-          🏭
-        </div>
-
-        <h3>
-          Factory Staffing
-        </h3>
-
-        <p>
-          Factories can submit their manpower
-          requirements and receive suitable candidates
-          for their vacancies.
-        </p>
-
-      </div>
-
-
-      <div class="service-card">
-
-        <div class="icon">
-          🤝
-        </div>
-
-        <h3>
-          Smart Job Matching
-        </h3>
-
-        <p>
-          Candidate skills, experience and location
-          can be matched with suitable industrial
-          job requirements.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= HOW IT WORKS ================= -->
-
-<section id="how">
-
-  <div class="section-inner">
-
-    <div class="section-heading">
-
-      <h2>
-        How SHRAMIQ Works
-      </h2>
-
-      <p>
-        Three simple steps to connect the right
-        people with the right jobs.
-      </p>
-
-    </div>
-
-
-    <div class="steps">
-
-
-      <div class="step">
-
-        <div class="step-number">
-          1
-        </div>
-
-        <h3>
-          Register
-        </h3>
-
-        <p>
-          Candidates and factories submit their
-          details through our online forms.
-        </p>
-
-      </div>
-
-
-      <div class="step">
-
-        <div class="step-number">
-          2
-        </div>
-
-        <h3>
-          Match
-        </h3>
-
-        <p>
-          SHRAMIQ identifies suitable candidates
-          and job requirements.
-        </p>
-
-      </div>
-
-
-      <div class="step">
-
-        <div class="step-number">
-          3
-        </div>
-
-        <h3>
-          Connect
-        </h3>
-
-        <p>
-          Candidates and employers move forward
-          towards interviews and hiring.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= CTA ================= -->
-
-<section class="cta">
-
-  <div class="section-inner">
-
-    <h2>
-      Ready to Get Started?
-    </h2>
-
-    <p>
-      Whether you are looking for a job or searching
-      for the right workforce, SHRAMIQ is ready to help.
-    </p>
-
-
-    <div
-      class="hero-buttons"
-      style="justify-content:center;">
-
-      <a
-        href="candidate.html"
-        class="btn btn-primary">
-
-        Register as Candidate
-
-      </a>
-
-
-      <a
-        href="factory.html"
-        class="btn btn-secondary">
-
-        Register Your Factory
-
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-
 <footer>
 
-  <div class="footer-inner">
-
-
-    <!-- COMPANY -->
-
-    <div>
-
-      <img
-        src="shramiq-logo.png"
-        alt="SHRAMIQ"
-        class="footer-logo">
-
-      <p>
-        Industrial Recruitment & Staffing.
-        Connecting people, skills and opportunities.
-      </p>
-
-    </div>
-
-
-    <!-- COMPANY LINKS -->
-
-    <div>
-
-      <h3>
-        Company
-      </h3>
-
-      <a href="about.html">
-        About Us
-      </a>
-
-      <a href="contact.html">
-        Contact Us
-      </a>
-
-      <a href="index.html">
-        Home
-      </a>
-
-    </div>
-
-
-    <!-- CANDIDATES -->
-
-    <div>
-
-      <h3>
-        Candidates
-      </h3>
-
-      <a href="candidate.html">
-        Register for Jobs
-      </a>
-
-      <a href="candidate.html">
-        Find Opportunities
-      </a>
-
-    </div>
-
-
-    <!-- EMPLOYERS -->
-
-    <div>
-
-      <h3>
-        Employers
-      </h3>
-
-      <a href="factory.html">
-        Submit Vacancy
-      </a>
-
-      <a href="factory.html">
-        Hire Workforce
-      </a>
-
-      <div class="contact-info">
-
-        <br>
-
-        📞
-        <a href="tel:7428919416">
-          7428919416
-        </a>
-
-        <br>
-
-        📞
-        <a href="tel:8287499285">
-          8287499285
-        </a>
-
-        <br>
-
-        ✉️
-        <a href="mailto:sharmiq.in@gmail.com">
-          sharmiq.in@gmail.com
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="copyright">
-
-    © 2026 SHRAMIQ.
-    All rights reserved.
-
-    <br>
-
-    Dr. Madan Mohan Chowk, Khatriyan,
-    Bijnor, Uttar Pradesh - 246701
-
-  </div>
+  © 2026 SHRAMIQ — Admin Panel
 
 </footer>
 
 
+<script>
+
+
+/* =====================================================
+   SUPABASE CONFIG
+===================================================== */
+
+
+const SUPABASE_URL =
+"https://kudimdzsoremjsjajmnd.supabase.co";
+
+
+const SUPABASE_KEY =
+"sb_publishable_dY-hms5DXZ6n2RvB5N-9oA_9NsdgjxI";
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+
+const candidateBody =
+document.getElementById("candidateBody");
+
+
+const factoryBody =
+document.getElementById("factoryBody");
+
+
+const candidateLoading =
+document.getElementById("candidateLoading");
+
+
+const factoryLoading =
+document.getElementById("factoryLoading");
+
+
+const errorBox =
+document.getElementById("errorBox");
+
+
+/* =====================================================
+   DATA
+===================================================== */
+
+
+let candidates = [];
+
+let factories = [];
+
+
+/* =====================================================
+   AUTH CHECK
+===================================================== */
+
+
+async function checkAdmin() {
+
+
+  const token =
+    localStorage.getItem(
+      "shramiq_access_token"
+    );
+
+
+  /* No login token */
+
+  if (!token) {
+
+    window.location.href =
+      "login.html";
+
+    return false;
+
+  }
+
+
+  try {
+
+
+    const response =
+      await fetch(
+
+        SUPABASE_URL +
+        "/auth/v1/user",
+
+        {
+
+          method: "GET",
+
+          headers: {
+
+            "apikey":
+              SUPABASE_KEY,
+
+            "Authorization":
+              "Bearer " + token
+
+          }
+
+        }
+
+      );
+
+
+    /* Invalid / expired token */
+
+    if (!response.ok) {
+
+
+      localStorage.removeItem(
+        "shramiq_access_token"
+      );
+
+
+      localStorage.removeItem(
+        "shramiq_refresh_token"
+      );
+
+
+      window.location.href =
+        "login.html";
+
+
+      return false;
+
+    }
+
+
+    return true;
+
+
+  } catch (error) {
+
+
+    console.error(error);
+
+
+    window.location.href =
+      "login.html";
+
+
+    return false;
+
+  }
+
+}
+
+
+/* =====================================================
+   LOAD DASHBOARD
+===================================================== */
+
+
+async function loadDashboard() {
+
+
+  /* First check login */
+
+  const isAuthenticated =
+    await checkAdmin();
+
+
+  if (!isAuthenticated) {
+
+    return;
+
+  }
+
+
+  errorBox.style.display =
+    "none";
+
+
+  candidateLoading.style.display =
+    "block";
+
+
+  factoryLoading.style.display =
+    "block";
+
+
+  try {
+
+
+    const token =
+      localStorage.getItem(
+        "shramiq_access_token"
+      );
+
+
+    /* =================================================
+       LOAD CANDIDATES
+    ================================================= */
+
+
+    const candidateResponse =
+      await fetch(
+
+        SUPABASE_URL +
+        "/rest/v1/candidates?select=*&order=id.desc",
+
+        {
+
+          method: "GET",
+
+          headers: {
+
+            "apikey":
+              SUPABASE_KEY,
+
+            "Authorization":
+              "Bearer " + token
+
+          }
+
+        }
+
+      );
+
+
+    /* =================================================
+       LOAD FACTORIES
+    ================================================= */
+
+
+    const factoryResponse =
+      await fetch(
+
+        SUPABASE_URL +
+        "/rest/v1/factories?select=*&order=id.desc",
+
+        {
+
+          method: "GET",
+
+          headers: {
+
+            "apikey":
+              SUPABASE_KEY,
+
+            "Authorization":
+              "Bearer " + token
+
+          }
+
+        }
+
+      );
+
+
+    /* Candidate error */
+
+    if (!candidateResponse.ok) {
+
+      const errorData =
+        await candidateResponse.text();
+
+      console.error(
+        "Candidate error:",
+        errorData
+      );
+
+      throw new Error(
+        "Unable to load candidates."
+      );
+
+    }
+
+
+    /* Factory error */
+
+    if (!factoryResponse.ok) {
+
+      const errorData =
+        await factoryResponse.text();
+
+      console.error(
+        "Factory error:",
+        errorData
+      );
+
+      throw new Error(
+        "Unable to load factories."
+      );
+
+    }
+
+
+    /* Convert JSON */
+
+    candidates =
+      await candidateResponse.json();
+
+
+    factories =
+      await factoryResponse.json();
+
+
+    /* Render */
+
+    renderCandidates(
+      candidates
+    );
+
+
+    renderFactories(
+      factories
+    );
+
+
+    /* Update numbers */
+
+    updateStats();
+
+
+  } catch (error) {
+
+
+    console.error(
+      "Dashboard error:",
+      error
+    );
+
+
+    errorBox.textContent =
+      "Dashboard data load nahi ho paya. Supabase RLS policies check karein.";
+
+
+    errorBox.style.display =
+      "block";
+
+
+  }
+
+
+  candidateLoading.style.display =
+    "none";
+
+
+  factoryLoading.style.display =
+    "none";
+
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+
+function updateStats() {
+
+
+  document.getElementById(
+    "candidateCount"
+  ).textContent =
+    candidates.length;
+
+
+  document.getElementById(
+    "factoryCount"
+  ).textContent =
+    factories.length;
+
+
+  let workers = 0;
+
+
+  factories.forEach(
+    factory => {
+
+      workers +=
+        Number(
+          factory.workers_required || 0
+        );
+
+    }
+  );
+
+
+  document.getElementById(
+    "workerCount"
+  ).textContent =
+    workers;
+
+}
+
+
+/* =====================================================
+   CANDIDATES
+===================================================== */
+
+
+function renderCandidates(data) {
+
+
+  candidateBody.innerHTML =
+    "";
+
+
+  if (!data.length) {
+
+
+    candidateBody.innerHTML = `
+
+      <tr>
+
+        <td
+          colspan="7"
+          class="empty">
+
+          No candidate registrations found.
+
+        </td>
+
+      </tr>
+
+    `;
+
+
+    return;
+
+  }
+
+
+  data.forEach(
+    candidate => {
+
+
+      const row =
+        document.createElement("tr");
+
+
+      row.innerHTML = `
+
+        <td>
+
+          <strong>
+            ${safe(candidate.full_name)}
+          </strong>
+
+        </td>
+
+
+        <td>
+          ${safe(candidate.mobile)}
+        </td>
+
+
+        <td>
+
+          ${safe(candidate.district)}
+
+          <br>
+
+          <small>
+            ${safe(candidate.state)}
+          </small>
+
+        </td>
+
+
+        <td>
+          ${safe(candidate.education)}
+        </td>
+
+
+        <td>
+          ${safe(candidate.experience)}
+        </td>
+
+
+        <td>
+
+          <span class="badge">
+
+            ${safe(candidate.primary_skill)}
+
+          </span>
+
+        </td>
+
+
+        <td>
+
+          ${safe(candidate.preferred_job_type)}
+
+          <br>
+
+          <small>
+            ${safe(candidate.preferred_location)}
+          </small>
+
+        </td>
+
+      `;
+
+
+      candidateBody.appendChild(
+        row
+      );
+
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   FACTORIES
+===================================================== */
+
+
+function renderFactories(data) {
+
+
+  factoryBody.innerHTML =
+    "";
+
+
+  if (!data.length) {
+
+
+    factoryBody.innerHTML = `
+
+      <tr>
+
+        <td
+          colspan="8"
+          class="empty">
+
+          No factory requirements found.
+
+        </td>
+
+      </tr>
+
+    `;
+
+
+    return;
+
+  }
+
+
+  data.forEach(
+    factory => {
+
+
+      const row =
+        document.createElement("tr");
+
+
+      row.innerHTML = `
+
+        <td>
+
+          <strong>
+
+            ${safe(factory.company_name)}
+
+          </strong>
+
+        </td>
+
+
+        <td>
+          ${safe(factory.contact_person)}
+        </td>
+
+
+        <td>
+          ${safe(factory.mobile)}
+        </td>
+
+
+        <td>
+          ${safe(factory.location)}
+        </td>
+
+
+        <td>
+          ${safe(factory.vacancy)}
+        </td>
+
+
+        <td>
+
+          <span class="badge">
+
+            ${safe(factory.workers_required)}
+
+          </span>
+
+        </td>
+
+
+        <td>
+          ${safe(factory.salary)}
+        </td>
+
+
+        <td>
+          ${safe(factory.shift)}
+        </td>
+
+      `;
+
+
+      factoryBody.appendChild(
+        row
+      );
+
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   SAFE TEXT
+===================================================== */
+
+
+function safe(value) {
+
+
+  if (
+    value === null ||
+    value === undefined
+  ) {
+
+    return "-";
+
+  }
+
+
+  return String(value)
+
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+
+    .replace(
+      /</g,
+      "&lt;"
+    )
+
+    .replace(
+      />/g,
+      "&gt;"
+    )
+
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+
+    .replace(
+      /'/g,
+      "&#039;"
+    );
+
+}
+
+
+/* =====================================================
+   CANDIDATE SEARCH
+===================================================== */
+
+
+document
+  .getElementById(
+    "candidateSearch"
+  )
+  .addEventListener(
+    "input",
+    function() {
+
+
+      const search =
+        this.value
+          .toLowerCase()
+          .trim();
+
+
+      if (!search) {
+
+        renderCandidates(
+          candidates
+        );
+
+        return;
+
+      }
+
+
+      const filtered =
+        candidates.filter(
+          candidate => {
+
+
+            const text = [
+
+              candidate.full_name,
+
+              candidate.mobile,
+
+              candidate.district,
+
+              candidate.state,
+
+              candidate.education,
+
+              candidate.experience,
+
+              candidate.primary_skill,
+
+              candidate.preferred_location,
+
+              candidate.preferred_job_type
+
+            ]
+
+            .join(" ")
+
+            .toLowerCase();
+
+
+            return text.includes(
+              search
+            );
+
+          }
+        );
+
+
+      renderCandidates(
+        filtered
+      );
+
+
+    }
+  );
+
+
+/* =====================================================
+   FACTORY SEARCH
+===================================================== */
+
+
+document
+  .getElementById(
+    "factorySearch"
+  )
+  .addEventListener(
+    "input",
+    function() {
+
+
+      const search =
+        this.value
+          .toLowerCase()
+          .trim();
+
+
+      if (!search) {
+
+        renderFactories(
+          factories
+        );
+
+        return;
+
+      }
+
+
+      const filtered =
+        factories.filter(
+          factory => {
+
+
+            const text = [
+
+              factory.company_name,
+
+              factory.contact_person,
+
+              factory.mobile,
+
+              factory.location,
+
+              factory.vacancy,
+
+              factory.salary,
+
+              factory.shift
+
+            ]
+
+            .join(" ")
+
+            .toLowerCase();
+
+
+            return text.includes(
+              search
+            );
+
+          }
+        );
+
+
+      renderFactories(
+        filtered
+      );
+
+
+    }
+  );
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+
+document
+  .getElementById(
+    "logoutBtn"
+  )
+  .addEventListener(
+    "click",
+    async function() {
+
+
+      const token =
+        localStorage.getItem(
+          "shramiq_access_token"
+        );
+
+
+      try {
+
+
+        if (token) {
+
+
+          await fetch(
+
+            SUPABASE_URL +
+            "/auth/v1/logout",
+
+            {
+
+              method: "POST",
+
+              headers: {
+
+                "apikey":
+                  SUPABASE_KEY,
+
+                "Authorization":
+                  "Bearer " + token
+
+              }
+
+            }
+
+          );
+
+        }
+
+
+      } catch (error) {
+
+
+        console.error(
+          error
+        );
+
+      }
+
+
+      /* Clear login */
+
+      localStorage.removeItem(
+        "shramiq_access_token"
+      );
+
+
+      localStorage.removeItem(
+        "shramiq_refresh_token"
+      );
+
+
+      /* Back to login */
+
+      window.location.href =
+        "login.html";
+
+
+    }
+  );
+
+
+/* =====================================================
+   START
+===================================================== */
+
+
+loadDashboard();
+
+
+</script>
+
+
 </body>
+
 </html>

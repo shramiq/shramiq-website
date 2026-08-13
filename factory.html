@@ -7,6 +7,7 @@
   <title>Factory Registration | SHRAMIQ</title>
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -15,83 +16,171 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #f5f7fa;
-      color: #172033;
+      background: #f5f8fc;
+      color: #142b45;
+      line-height: 1.6;
     }
 
+    /* ================= HEADER ================= */
+
     header {
-      background: white;
-      padding: 18px 7%;
+      background: #ffffff;
+      padding: 12px 6%;
+      border-bottom: 1px solid #e5eaf0;
+      box-shadow: 0 2px 12px rgba(6,43,84,0.06);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: auto;
+      min-height: 78px;
+
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #e5e7eb;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
     }
 
     .logo {
-      font-size: 28px;
-      font-weight: 900;
-      color: #102a43;
-      letter-spacing: 1px;
+      width: 165px;
+      height: auto;
+      display: block;
     }
 
-    .logo span {
-      color: #f59e0b;
-    }
-
-    header a {
+    .back-home {
       text-decoration: none;
-      color: #344054;
+      color: #062b54;
       font-weight: 700;
+      padding: 10px 16px;
+      border: 1px solid #d9e2ec;
+      border-radius: 8px;
+      transition: 0.2s;
     }
+
+    .back-home:hover {
+      background: #062b54;
+      color: white;
+      border-color: #062b54;
+    }
+
+
+    /* ================= HERO ================= */
 
     .hero {
-      background: #102a43;
+      background:
+        linear-gradient(
+          135deg,
+          #062b54 0%,
+          #0b477b 70%,
+          #123f67 100%
+        );
+
       color: white;
-      padding: 55px 7%;
+      padding: 65px 6%;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      border: 2px solid rgba(247,168,0,0.15);
+      border-radius: 50%;
+      left: -130px;
+      bottom: -180px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border: 2px solid rgba(247,168,0,0.18);
+      border-radius: 50%;
+      right: -90px;
+      top: -130px;
     }
 
     .hero h1 {
-      font-size: 42px;
+      font-size: 43px;
+      line-height: 1.2;
       margin-bottom: 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 span {
+      color: #f7a800;
     }
 
     .hero p {
-      color: #d5dfeb;
+      color: #dbe8f4;
       font-size: 17px;
+      max-width: 700px;
+      margin: auto;
+      position: relative;
+      z-index: 2;
     }
+
+
+    /* ================= CONTAINER ================= */
 
     .container {
       max-width: 950px;
-      margin: 45px auto;
+      margin: 45px auto 70px;
       padding: 0 20px;
     }
 
     .form-box {
       background: white;
-      padding: 35px;
-      border-radius: 16px;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+      padding: 40px;
+      border-radius: 18px;
+
+      box-shadow:
+        0 15px 45px rgba(6,43,84,0.09);
+
+      border: 1px solid #e6edf4;
     }
+
+
+    /* ================= TITLE ================= */
 
     .form-title {
       margin-bottom: 30px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid #edf1f5;
     }
 
     .form-title h2 {
-      color: #102a43;
-      margin-bottom: 8px;
+      color: #062b54;
+      font-size: 27px;
+      margin-bottom: 7px;
+    }
+
+    .form-title h2 span {
+      color: #f7a800;
     }
 
     .form-title p {
       color: #667085;
+      font-size: 15px;
     }
+
+
+    /* ================= GRID ================= */
 
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 21px;
     }
 
     .field {
@@ -103,62 +192,110 @@
       grid-column: 1 / -1;
     }
 
+
+    /* ================= LABEL ================= */
+
     label {
       font-weight: 700;
       margin-bottom: 8px;
       color: #344054;
+      font-size: 14px;
     }
+
+
+    /* ================= INPUTS ================= */
 
     input,
     select,
     textarea {
       width: 100%;
       padding: 13px 14px;
-      border: 1px solid #d0d5dd;
+
+      border: 1px solid #cfd8e3;
       border-radius: 8px;
+
       font-size: 15px;
+      font-family: inherit;
+
       outline: none;
-      background: white;
+      background: #ffffff;
+      color: #172033;
+
+      transition: 0.2s;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #98a2b3;
     }
 
     input:focus,
     select:focus,
     textarea:focus {
-      border-color: #f59e0b;
+      border-color: #f7a800;
+
+      box-shadow:
+        0 0 0 3px rgba(247,168,0,0.12);
     }
 
     textarea {
-      min-height: 110px;
+      min-height: 120px;
       resize: vertical;
     }
 
+
+    /* ================= BUTTON ================= */
+
     button {
       margin-top: 25px;
+
       width: 100%;
       padding: 15px;
+
       border: none;
       border-radius: 9px;
-      background: #f59e0b;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f7a800,
+          #e88d00
+        );
+
       color: white;
+
       font-size: 17px;
       font-weight: 800;
+
       cursor: pointer;
+
+      box-shadow:
+        0 7px 18px rgba(247,168,0,0.25);
+
+      transition: 0.2s;
     }
 
     button:hover {
-      background: #d97706;
+      transform: translateY(-1px);
+
+      box-shadow:
+        0 10px 22px rgba(247,168,0,0.32);
     }
 
     button:disabled {
       opacity: 0.6;
       cursor: not-allowed;
+      transform: none;
     }
+
+
+    /* ================= MESSAGE ================= */
 
     #message {
       display: none;
       margin-top: 20px;
-      padding: 15px;
-      border-radius: 8px;
+      padding: 16px;
+      border-radius: 9px;
       text-align: center;
       font-weight: 700;
     }
@@ -167,13 +304,18 @@
       display: block !important;
       background: #ecfdf3;
       color: #027a48;
+      border: 1px solid #abefc6;
     }
 
     .error {
       display: block !important;
       background: #fef3f2;
       color: #b42318;
+      border: 1px solid #fecdca;
     }
+
+
+    /* ================= NOTE ================= */
 
     .note {
       text-align: center;
@@ -182,19 +324,96 @@
       font-size: 13px;
     }
 
+
+    /* ================= TRUST BOX ================= */
+
+    .trust-box {
+      margin-top: 28px;
+
+      background: #f5f9fd;
+      border-left: 4px solid #f7a800;
+
+      padding: 18px;
+
+      border-radius: 9px;
+    }
+
+    .trust-box h3 {
+      color: #062b54;
+      font-size: 17px;
+      margin-bottom: 5px;
+    }
+
+    .trust-box p {
+      color: #667085;
+      font-size: 14px;
+    }
+
+
+    /* ================= FOOTER ================= */
+
     footer {
-      margin-top: 60px;
-      padding: 30px;
-      background: #091b2e;
+      background: #061d35;
       color: #aebed0;
+      padding: 38px 20px;
       text-align: center;
+    }
+
+    .footer-logo {
+      width: 150px;
+      background: white;
+      padding: 4px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
+    footer p {
+      margin-top: 5px;
+      font-size: 14px;
     }
 
     footer strong {
       color: white;
     }
 
+    .footer-orange {
+      color: #f7a800;
+    }
+
+
+    /* ================= MOBILE ================= */
+
     @media(max-width: 700px) {
+
+      header {
+        padding: 10px 5%;
+      }
+
+      .header-inner {
+        min-height: 68px;
+      }
+
+      .logo {
+        width: 135px;
+      }
+
+      .back-home {
+        font-size: 13px;
+        padding: 8px 11px;
+      }
+
+      .hero {
+        padding: 50px 6%;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
       .grid {
         grid-template-columns: 1fr;
       }
@@ -204,41 +423,69 @@
       }
 
       .form-box {
-        padding: 25px 20px;
+        padding: 27px 20px;
       }
 
-      .hero h1 {
-        font-size: 34px;
+      .form-title h2 {
+        font-size: 24px;
       }
+
+      .container {
+        margin-top: 30px;
+      }
+
     }
+
   </style>
+
 </head>
+
 
 <body>
 
+
+<!-- ================= HEADER ================= -->
+
 <header>
 
-  <div class="logo">
-    SHRAM<span>IQ</span>
-  </div>
+  <div class="header-inner">
 
-  <a href="index.html">
-    ← Back to Home
-  </a>
+    <a href="index.html" class="brand">
+
+      <img
+        src="shramiq-logo.png"
+        alt="SHRAMIQ - Industrial Recruitment & Staffing"
+        class="logo">
+
+    </a>
+
+
+    <a href="index.html" class="back-home">
+      ← Back to Home
+    </a>
+
+  </div>
 
 </header>
 
 
+<!-- ================= HERO ================= -->
+
 <section class="hero">
 
-  <h1>Factory Registration</h1>
+  <h1>
+    Factory <span>Registration</span>
+  </h1>
 
   <p>
-    Tell SHRAMIQ about your staffing requirements.
+    Tell SHRAMIQ about your staffing requirements and
+    connect with the right workforce.
   </p>
 
 </section>
 
+
+<!-- ================= FORM ================= -->
 
 <div class="container">
 
@@ -246,10 +493,13 @@
 
     <div class="form-title">
 
-      <h2>Hire the Right Workforce</h2>
+      <h2>
+        Hire the Right <span>Workforce</span>
+      </h2>
 
       <p>
-        Submit your requirement and our recruitment team will contact you.
+        Submit your requirement and our recruitment team
+        will contact you regarding suitable candidates.
       </p>
 
     </div>
@@ -259,37 +509,42 @@
 
       <div class="grid">
 
+
         <div class="field">
 
-          <label>Company / Factory Name *</label>
+          <label>
+            Company / Factory Name *
+          </label>
 
           <input
             type="text"
             id="company_name"
-            placeholder="Company name"
-            required
-          >
+            placeholder="Enter company name"
+            required>
 
         </div>
 
 
         <div class="field">
 
-          <label>Contact Person *</label>
+          <label>
+            Contact Person *
+          </label>
 
           <input
             type="text"
             id="contact_person"
             placeholder="HR / Manager name"
-            required
-          >
+            required>
 
         </div>
 
 
         <div class="field">
 
-          <label>Mobile Number *</label>
+          <label>
+            Mobile Number *
+          </label>
 
           <input
             type="tel"
@@ -297,96 +552,112 @@
             maxlength="10"
             pattern="[0-9]{10}"
             placeholder="10 digit mobile number"
-            required
-          >
+            required>
 
         </div>
 
 
         <div class="field">
 
-          <label>Email Address</label>
+          <label>
+            Email Address
+          </label>
 
           <input
             type="email"
             id="email"
-            placeholder="HR email"
-          >
+            placeholder="HR / company email">
 
         </div>
 
 
         <div class="field">
 
-          <label>Factory Location *</label>
+          <label>
+            Factory Location *
+          </label>
 
           <input
             type="text"
             id="location"
             placeholder="City / Industrial Area"
-            required
-          >
+            required>
 
         </div>
 
 
         <div class="field">
 
-          <label>Job Role / Vacancy *</label>
+          <label>
+            Job Role / Vacancy *
+          </label>
 
           <input
             type="text"
             id="vacancy"
             placeholder="e.g. Machine Operator"
-            required
-          >
+            required>
 
         </div>
 
 
         <div class="field">
 
-          <label>Workers Required *</label>
+          <label>
+            Workers Required *
+          </label>
 
           <input
             type="number"
             id="workers_required"
             min="1"
             placeholder="Number of workers"
-            required
-          >
+            required>
 
         </div>
 
 
         <div class="field">
 
-          <label>Salary Offered</label>
+          <label>
+            Salary Offered
+          </label>
 
           <input
             type="text"
             id="salary"
-            placeholder="e.g. ₹15,000 - ₹18,000"
-          >
+            placeholder="e.g. ₹15,000 - ₹18,000">
 
         </div>
 
 
         <div class="field">
 
-          <label>Shift</label>
+          <label>
+            Shift
+          </label>
 
           <select id="shift">
 
-            <option value="">Select Shift</option>
+            <option value="">
+              Select Shift
+            </option>
 
-            <option>Day Shift</option>
+            <option>
+              Day Shift
+            </option>
 
-            <option>Night Shift</option>
+            <option>
+              Night Shift
+            </option>
 
-            <option>Rotational Shift</option>
+            <option>
+              Rotational Shift
+            </option>
 
-            <option>General Shift</option>
+            <option>
+              General Shift
+            </option>
 
           </select>
 
@@ -395,45 +666,70 @@
 
         <div class="field">
 
-          <label>Qualification</label>
+          <label>
+            Qualification
+          </label>
 
           <input
             type="text"
             id="qualification"
-            placeholder="e.g. 10th / 12th / ITI"
-          >
+            placeholder="e.g. 10th / 12th / ITI">
 
         </div>
 
 
         <div class="field">
 
-          <label>Expected Joining Date</label>
+          <label>
+            Expected Joining Date
+          </label>
 
           <input
             type="date"
-            id="joining_date"
-          >
+            id="joining_date">
 
         </div>
 
 
         <div class="field full">
 
-          <label>Additional Requirement</label>
+          <label>
+            Additional Requirement
+          </label>
 
           <textarea
             id="additional_information"
-            placeholder="Experience, gender preference, accommodation, food, transport, etc."
-          ></textarea>
+            placeholder="Experience, accommodation, food, transport, number of shifts, etc."></textarea>
 
         </div>
 
       </div>
 
 
-      <button type="submit" id="submitBtn">
+      <!-- TRUST -->
+
+      <div class="trust-box">
+
+        <h3>
+          SHRAMIQ Recruitment Support
+        </h3>
+
+        <p>
+          Share your workforce requirement and our team will
+          review it and contact you for the next steps.
+        </p>
+
+      </div>
+
+
+      <!-- SUBMIT -->
+
+      <button
+        type="submit"
+        id="submitBtn">
+
         Submit Requirement
+
       </button>
 
 
@@ -441,7 +737,10 @@
 
 
       <div class="note">
-        Your information will be used only for recruitment and staffing purposes.
+
+        Your information will be used only for
+        recruitment and staffing purposes.
+
       </div>
 
     </form>
@@ -451,13 +750,37 @@
 </div>
 
 
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
-  © 2026 <strong>SHRAMIQ</strong> —
-  Industrial Recruitment & Staffing
+  <img
+    src="shramiq-logo.png"
+    alt="SHRAMIQ Logo"
+    class="footer-logo">
+
+  <p>
+
+    <strong>
+      SHRAM<span class="footer-orange">IQ</span>
+    </strong>
+
+    — Industrial Recruitment & Staffing
+
+  </p>
+
+  <p>
+    Right People • Right Jobs • Better Future
+  </p>
+
+  <p style="margin-top:15px;">
+    © 2026 SHRAMIQ. All rights reserved.
+  </p>
 
 </footer>
 
+
+<!-- ================= SUPABASE ================= -->
 
 <script>
 
@@ -478,91 +801,134 @@ const message =
 document.getElementById("message");
 
 
-form.addEventListener("submit", async function(event) {
+form.addEventListener(
+"submit",
+async function(event) {
 
   event.preventDefault();
 
   button.disabled = true;
 
-  button.textContent = "Submitting...";
+  button.textContent =
+    "Submitting...";
 
   message.className = "";
 
-  message.style.display = "none";
+  message.style.display =
+    "none";
 
 
   const factory = {
 
     company_name:
-      document.getElementById("company_name").value.trim(),
+      document
+      .getElementById("company_name")
+      .value
+      .trim(),
 
     contact_person:
-      document.getElementById("contact_person").value.trim(),
+      document
+      .getElementById("contact_person")
+      .value
+      .trim(),
 
     mobile:
-      document.getElementById("mobile").value.trim(),
+      document
+      .getElementById("mobile")
+      .value
+      .trim(),
 
     email:
-      document.getElementById("email").value.trim() || null,
+      document
+      .getElementById("email")
+      .value
+      .trim() || null,
 
     location:
-      document.getElementById("location").value.trim(),
+      document
+      .getElementById("location")
+      .value
+      .trim(),
 
     vacancy:
-      document.getElementById("vacancy").value.trim(),
+      document
+      .getElementById("vacancy")
+      .value
+      .trim(),
 
     workers_required:
-      Number(document.getElementById("workers_required").value),
+      Number(
+        document
+        .getElementById("workers_required")
+        .value
+      ),
 
     salary:
-      document.getElementById("salary").value.trim() || null,
+      document
+      .getElementById("salary")
+      .value
+      .trim() || null,
 
     shift:
-      document.getElementById("shift").value || null,
+      document
+      .getElementById("shift")
+      .value || null,
 
     qualification:
-      document.getElementById("qualification").value.trim() || null,
+      document
+      .getElementById("qualification")
+      .value
+      .trim() || null,
 
     joining_date:
-      document.getElementById("joining_date").value || null,
+      document
+      .getElementById("joining_date")
+      .value || null,
 
     additional_information:
-      document.getElementById("additional_information").value.trim() || null
+      document
+      .getElementById("additional_information")
+      .value
+      .trim() || null
 
   };
 
 
   try {
 
-    const response = await fetch(
+    const response =
+      await fetch(
 
-      SUPABASE_URL + "/rest/v1/factories",
+        SUPABASE_URL +
+        "/rest/v1/factories",
 
-      {
+        {
 
-        method: "POST",
+          method: "POST",
 
-        headers: {
+          headers: {
 
-          "apikey": SUPABASE_KEY,
+            "apikey":
+              SUPABASE_KEY,
 
-          "Authorization":
-            "Bearer " + SUPABASE_KEY,
+            "Authorization":
+              "Bearer " +
+              SUPABASE_KEY,
 
-          "Content-Type":
-            "application/json",
+            "Content-Type":
+              "application/json",
 
-          "Prefer":
-            "return=minimal"
+            "Prefer":
+              "return=minimal"
 
-        },
+          },
 
-        body:
-          JSON.stringify(factory)
+          body:
+            JSON.stringify(factory)
 
-      }
+        }
 
-    );
+      );
 
 
     if (!response.ok) {
@@ -611,6 +977,7 @@ form.addEventListener("submit", async function(event) {
 });
 
 </script>
+
 
 </body>
 </html>

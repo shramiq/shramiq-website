@@ -1,285 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
-  <title>Admin Dashboard | SHRAMIQ</title>
+<title>Admin Dashboard | SHRAMIQ</title>
 
-  <style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f7fa;
-      color: #172033;
-    }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid #e5e7eb;
-      padding: 14px 5%;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fa;
+  color: #172033;
+}
 
-    .header-inner {
-      max-width: 1250px;
-      margin: auto;
-      min-height: 65px;
+/* HEADER */
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-    }
+header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 14px 5%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-    .logo {
-      width: 145px;
-      background: white;
-    }
+.header-inner {
+  max-width: 1250px;
+  margin: auto;
+  min-height: 65px;
 
-    .admin-title {
-      color: #102a43;
-      font-weight: 800;
-      font-size: 18px;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
 
-    .logout-btn {
-      border: none;
-      background: #102a43;
-      color: white;
-      padding: 10px 17px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 700;
-    }
+.logo {
+  width: 145px;
+}
 
-    .logout-btn:hover {
-      background: #081d35;
-    }
+.admin-title {
+  color: #102a43;
+  font-weight: 800;
+  font-size: 18px;
+}
 
-    .container {
-      max-width: 1250px;
-      margin: 35px auto;
-      padding: 0 20px;
-    }
+.logout-btn {
+  border: none;
+  background: #102a43;
+  color: white;
+  padding: 10px 17px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+}
 
-    .welcome {
-      margin-bottom: 25px;
-    }
+.logout-btn:hover {
+  background: #081d35;
+}
 
-    .welcome h1 {
-      color: #102a43;
-      font-size: 32px;
-      margin-bottom: 5px;
-    }
+/* CONTAINER */
 
-    .welcome p {
-      color: #667085;
-    }
+.container {
+  max-width: 1250px;
+  margin: 35px auto;
+  padding: 0 20px;
+}
 
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-bottom: 30px;
-    }
+/* WELCOME */
 
-    .stat-card {
-      background: white;
-      border-radius: 14px;
-      padding: 25px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
-    }
+.welcome {
+  margin-bottom: 25px;
+}
 
-    .stat-card strong {
-      display: block;
-      font-size: 32px;
-      color: #102a43;
-      margin-bottom: 5px;
-    }
+.welcome h1 {
+  color: #102a43;
+  font-size: 32px;
+  margin-bottom: 5px;
+}
 
-    .stat-card span {
-      color: #667085;
-      font-size: 14px;
-    }
+.welcome p {
+  color: #667085;
+}
 
-    .section {
-      background: white;
-      border-radius: 15px;
-      padding: 25px;
-      margin-bottom: 30px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
-    }
+/* ERROR */
 
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
+.error {
+  display: none;
+  background: #fef3f2;
+  color: #b42318;
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
 
-    .section-header h2 {
-      color: #102a43;
-      font-size: 23px;
-    }
+/* STATS */
 
-    .refresh-btn {
-      border: 1px solid #d0d5dd;
-      background: white;
-      color: #102a43;
-      padding: 9px 15px;
-      border-radius: 7px;
-      cursor: pointer;
-      font-weight: 700;
-    }
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 30px;
+}
 
-    .refresh-btn:hover {
-      background: #f5f7fa;
-    }
+.stat-card {
+  background: white;
+  border-radius: 14px;
+  padding: 25px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+}
 
-    .search {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1px solid #d0d5dd;
-      border-radius: 8px;
-      margin-bottom: 18px;
-      outline: none;
-      font-size: 15px;
-    }
+.stat-card strong {
+  display: block;
+  font-size: 32px;
+  color: #102a43;
+  margin-bottom: 5px;
+}
 
-    .search:focus {
-      border-color: #f59e0b;
-    }
+.stat-card span {
+  color: #667085;
+  font-size: 14px;
+}
 
-    .table-wrapper {
-      width: 100%;
-      overflow-x: auto;
-    }
+/* SECTION */
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 850px;
-    }
+.section {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 30px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+}
 
-    th {
-      text-align: left;
-      background: #f8fafc;
-      color: #344054;
-      padding: 13px;
-      font-size: 13px;
-      border-bottom: 1px solid #e5e7eb;
-    }
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
 
-    td {
-      padding: 13px;
-      border-bottom: 1px solid #eaecf0;
-      color: #475467;
-      font-size: 14px;
-      vertical-align: top;
-    }
+.section-header h2 {
+  color: #102a43;
+  font-size: 23px;
+}
 
-    tr:hover td {
-      background: #fcfcfd;
-    }
+.refresh-btn {
+  border: 1px solid #d0d5dd;
+  background: white;
+  color: #102a43;
+  padding: 9px 15px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 700;
+}
 
-    .empty {
-      text-align: center;
-      padding: 30px;
-      color: #667085;
-    }
+.refresh-btn:hover {
+  background: #f5f7fa;
+}
 
-    .loading {
-      text-align: center;
-      padding: 25px;
-      color: #667085;
-    }
+/* SEARCH */
 
-    .error {
-      display: none;
-      background: #fef3f2;
-      color: #b42318;
-      padding: 14px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
+.search {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  outline: none;
+  font-size: 15px;
+}
 
-    .badge {
-      display: inline-block;
-      padding: 5px 9px;
-      background: #fff7e6;
-      color: #b54708;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 700;
-    }
+.search:focus {
+  border-color: #f59e0b;
+}
 
-    footer {
-      margin-top: 50px;
-      background: #071a2d;
-      color: #aebed0;
-      padding: 25px;
-      text-align: center;
-      font-size: 13px;
-    }
+/* TABLE */
 
-    @media(max-width: 700px) {
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
 
-      .header-inner {
-        min-height: 55px;
-      }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 850px;
+}
 
-      .logo {
-        width: 120px;
-      }
+th {
+  text-align: left;
+  background: #f8fafc;
+  color: #344054;
+  padding: 13px;
+  font-size: 13px;
+  border-bottom: 1px solid #e5e7eb;
+}
 
-      .admin-title {
-        display: none;
-      }
+td {
+  padding: 13px;
+  border-bottom: 1px solid #eaecf0;
+  color: #475467;
+  font-size: 14px;
+  vertical-align: top;
+}
 
-      .stats {
-        grid-template-columns: 1fr;
-      }
+tr:hover td {
+  background: #fcfcfd;
+}
 
-      .container {
-        margin-top: 25px;
-      }
+.empty {
+  text-align: center;
+  padding: 30px;
+  color: #667085;
+}
 
-      .welcome h1 {
-        font-size: 27px;
-      }
+.loading {
+  text-align: center;
+  padding: 25px;
+  color: #667085;
+}
 
-      .section {
-        padding: 18px;
-      }
+.badge {
+  display: inline-block;
+  padding: 5px 9px;
+  background: #fff7e6;
+  color: #b54708;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
 
-    }
+/* FOOTER */
 
-  </style>
+footer {
+  margin-top: 50px;
+  background: #071a2d;
+  color: #aebed0;
+  padding: 25px;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+
+  .header-inner {
+    min-height: 55px;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  .admin-title {
+    display: none;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    margin-top: 25px;
+  }
+
+  .welcome h1 {
+    font-size: 27px;
+  }
+
+  .section {
+    padding: 18px;
+  }
+
+}
+
+</style>
 
 </head>
 
-
 <body>
 
+<!-- HEADER -->
 
 <header>
 
@@ -290,7 +311,8 @@
       <img
         src="shramiq-logo.png"
         alt="SHRAMIQ"
-        class="logo">
+        class="logo"
+      >
 
     </a>
 
@@ -300,10 +322,9 @@
 
     <button
       class="logout-btn"
-      id="logoutBtn">
-
+      id="logoutBtn"
+    >
       Logout
-
     </button>
 
   </div>
@@ -311,8 +332,9 @@
 </header>
 
 
-<div class="container">
+<!-- MAIN -->
 
+<div class="container">
 
   <div class="welcome">
 
@@ -333,10 +355,9 @@
   </div>
 
 
-  <!-- ================= STATS ================= -->
+  <!-- STATS -->
 
   <div class="stats">
-
 
     <div class="stat-card">
 
@@ -376,14 +397,12 @@
 
     </div>
 
-
   </div>
 
 
-  <!-- ================= CANDIDATES ================= -->
+  <!-- CANDIDATES -->
 
   <div class="section">
-
 
     <div class="section-header">
 
@@ -393,10 +412,9 @@
 
       <button
         class="refresh-btn"
-        onclick="loadDashboard()">
-
+        onclick="loadDashboard()"
+      >
         ↻ Refresh
-
       </button>
 
     </div>
@@ -406,15 +424,15 @@
       type="text"
       id="candidateSearch"
       class="search"
-      placeholder="Search candidate by name, mobile, district or skill...">
+      placeholder="Search candidate by name, mobile, district or skill..."
+    >
 
 
     <div
       id="candidateLoading"
-      class="loading">
-
+      class="loading"
+    >
       Loading candidates...
-
     </div>
 
 
@@ -444,9 +462,7 @@
 
         </thead>
 
-
         <tbody id="candidateBody">
-
         </tbody>
 
       </table>
@@ -456,10 +472,9 @@
   </div>
 
 
-  <!-- ================= FACTORIES ================= -->
+  <!-- FACTORIES -->
 
   <div class="section">
-
 
     <div class="section-header">
 
@@ -469,10 +484,9 @@
 
       <button
         class="refresh-btn"
-        onclick="loadDashboard()">
-
+        onclick="loadDashboard()"
+      >
         ↻ Refresh
-
       </button>
 
     </div>
@@ -482,15 +496,15 @@
       type="text"
       id="factorySearch"
       class="search"
-      placeholder="Search factory, contact person, location or vacancy...">
+      placeholder="Search factory, contact person, location or vacancy..."
+    >
 
 
     <div
       id="factoryLoading"
-      class="loading">
-
+      class="loading"
+    >
       Loading factory requirements...
-
     </div>
 
 
@@ -522,9 +536,7 @@
 
         </thead>
 
-
         <tbody id="factoryBody">
-
         </tbody>
 
       </table>
@@ -533,9 +545,10 @@
 
   </div>
 
-
 </div>
 
+
+<!-- FOOTER -->
 
 <footer>
 
@@ -546,181 +559,86 @@
 
 <script>
 
-
-/* =====================================================
-   SUPABASE CONFIG
-===================================================== */
-
+/* =========================================
+   SUPABASE
+========================================= */
 
 const SUPABASE_URL =
 "https://kudimdzsoremjsjajmnd.supabase.co";
-
 
 const SUPABASE_KEY =
 "sb_publishable_dY-hms5DXZ6n2RvB5N-9oA_9NsdgjxI";
 
 
-/* =====================================================
-   ELEMENTS
-===================================================== */
+const supabaseClient =
+window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
 
 
-const candidateBody =
-document.getElementById("candidateBody");
-
-
-const factoryBody =
-document.getElementById("factoryBody");
-
-
-const candidateLoading =
-document.getElementById("candidateLoading");
-
-
-const factoryLoading =
-document.getElementById("factoryLoading");
-
-
-const errorBox =
-document.getElementById("errorBox");
-
-
-/* =====================================================
-   DATA
-===================================================== */
-
+/* =========================================
+   VARIABLES
+========================================= */
 
 let candidates = [];
 
 let factories = [];
 
 
-/* =====================================================
-   AUTH CHECK
-===================================================== */
+const candidateBody =
+document.getElementById("candidateBody");
+
+const factoryBody =
+document.getElementById("factoryBody");
+
+const candidateLoading =
+document.getElementById("candidateLoading");
+
+const factoryLoading =
+document.getElementById("factoryLoading");
+
+const errorBox =
+document.getElementById("errorBox");
 
 
-async function checkAdmin() {
+/* =========================================
+   CHECK LOGIN
+========================================= */
+
+async function checkLogin() {
+
+  const {
+    data,
+    error
+  } = await supabaseClient.auth.getUser();
 
 
-  const token =
-    localStorage.getItem(
-      "shramiq_access_token"
-    );
-
-
-  /* No login token */
-
-  if (!token) {
+  if (error || !data.user) {
 
     window.location.href =
-      "login.html";
+      "index.html";
 
     return false;
 
   }
 
 
-  try {
-
-
-    const response =
-      await fetch(
-
-        SUPABASE_URL +
-        "/auth/v1/user",
-
-        {
-
-          method: "GET",
-
-          headers: {
-
-            "apikey":
-              SUPABASE_KEY,
-
-            "Authorization":
-              "Bearer " + token
-
-          }
-
-        }
-
-      );
-
-
-    /* Invalid / expired token */
-
-    if (!response.ok) {
-
-
-      localStorage.removeItem(
-        "shramiq_access_token"
-      );
-
-
-      localStorage.removeItem(
-        "shramiq_refresh_token"
-      );
-
-
-      window.location.href =
-        "login.html";
-
-
-      return false;
-
-    }
-
-
-    return true;
-
-
-  } catch (error) {
-
-
-    console.error(error);
-
-
-    window.location.href =
-      "login.html";
-
-
-    return false;
-
-  }
+  return true;
 
 }
 
 
-/* =====================================================
+/* =========================================
    LOAD DASHBOARD
-===================================================== */
-
+========================================= */
 
 async function loadDashboard() {
 
-
-  /* First check login */
-
-  const isAuthenticated =
-    await checkAdmin();
-
-
-  if (!isAuthenticated) {
-
-    return;
-
-  }
-
-
-  errorBox.style.display =
-    "none";
-
+  errorBox.style.display = "none";
 
   candidateLoading.style.display =
     "block";
-
 
   factoryLoading.style.display =
     "block";
@@ -728,122 +646,78 @@ async function loadDashboard() {
 
   try {
 
-
-    const token =
-      localStorage.getItem(
-        "shramiq_access_token"
-      );
+    const loginOK =
+      await checkLogin();
 
 
-    /* =================================================
-       LOAD CANDIDATES
-    ================================================= */
+    if (!loginOK) {
+      return;
+    }
 
 
-    const candidateResponse =
-      await fetch(
+    /* CANDIDATES */
 
-        SUPABASE_URL +
-        "/rest/v1/candidates?select=*&order=id.desc",
-
-        {
-
-          method: "GET",
-
-          headers: {
-
-            "apikey":
-              SUPABASE_KEY,
-
-            "Authorization":
-              "Bearer " + token
-
-          }
-
-        }
-
-      );
+    const {
+      data: candidateData,
+      error: candidateError
+    } =
+      await supabaseClient
+        .from("candidates")
+        .select("*")
+        .order("id", {
+          ascending: false
+        });
 
 
-    /* =================================================
-       LOAD FACTORIES
-    ================================================= */
-
-
-    const factoryResponse =
-      await fetch(
-
-        SUPABASE_URL +
-        "/rest/v1/factories?select=*&order=id.desc",
-
-        {
-
-          method: "GET",
-
-          headers: {
-
-            "apikey":
-              SUPABASE_KEY,
-
-            "Authorization":
-              "Bearer " + token
-
-          }
-
-        }
-
-      );
-
-
-    /* Candidate error */
-
-    if (!candidateResponse.ok) {
-
-      const errorData =
-        await candidateResponse.text();
+    if (candidateError) {
 
       console.error(
         "Candidate error:",
-        errorData
+        candidateError
       );
 
       throw new Error(
-        "Unable to load candidates."
+        "Candidates load nahi ho rahe."
       );
 
     }
 
 
-    /* Factory error */
+    /* FACTORIES */
 
-    if (!factoryResponse.ok) {
+    const {
+      data: factoryData,
+      error: factoryError
+    } =
+      await supabaseClient
+        .from("factories")
+        .select("*")
+        .order("id", {
+          ascending: false
+        });
 
-      const errorData =
-        await factoryResponse.text();
+
+    if (factoryError) {
 
       console.error(
         "Factory error:",
-        errorData
+        factoryError
       );
 
       throw new Error(
-        "Unable to load factories."
+        "Factories load nahi ho rahi."
       );
 
     }
 
 
-    /* Convert JSON */
-
     candidates =
-      await candidateResponse.json();
+      candidateData || [];
 
 
     factories =
-      await factoryResponse.json();
+      factoryData || [];
 
-
-    /* Render */
 
     renderCandidates(
       candidates
@@ -855,27 +729,19 @@ async function loadDashboard() {
     );
 
 
-    /* Update numbers */
-
     updateStats();
 
 
-  } catch (error) {
+  } catch(error) {
 
-
-    console.error(
-      "Dashboard error:",
-      error
-    );
-
+    console.error(error);
 
     errorBox.textContent =
-      "Dashboard data load nahi ho paya. Supabase RLS policies check karein.";
-
+      error.message ||
+      "Dashboard data load nahi ho paya.";
 
     errorBox.style.display =
       "block";
-
 
   }
 
@@ -883,20 +749,17 @@ async function loadDashboard() {
   candidateLoading.style.display =
     "none";
 
-
   factoryLoading.style.display =
     "none";
 
 }
 
 
-/* =====================================================
+/* =========================================
    STATS
-===================================================== */
-
+========================================= */
 
 function updateStats() {
-
 
   document.getElementById(
     "candidateCount"
@@ -933,20 +796,16 @@ function updateStats() {
 }
 
 
-/* =====================================================
+/* =========================================
    CANDIDATES
-===================================================== */
-
+========================================= */
 
 function renderCandidates(data) {
 
-
-  candidateBody.innerHTML =
-    "";
+  candidateBody.innerHTML = "";
 
 
   if (!data.length) {
-
 
     candidateBody.innerHTML = `
 
@@ -954,16 +813,14 @@ function renderCandidates(data) {
 
         <td
           colspan="7"
-          class="empty">
-
+          class="empty"
+        >
           No candidate registrations found.
-
         </td>
 
       </tr>
 
     `;
-
 
     return;
 
@@ -973,7 +830,6 @@ function renderCandidates(data) {
   data.forEach(
     candidate => {
 
-
       const row =
         document.createElement("tr");
 
@@ -981,11 +837,9 @@ function renderCandidates(data) {
       row.innerHTML = `
 
         <td>
-
           <strong>
             ${safe(candidate.full_name)}
           </strong>
-
         </td>
 
 
@@ -1021,7 +875,9 @@ function renderCandidates(data) {
 
           <span class="badge">
 
-            ${safe(candidate.primary_skill)}
+            ${safe(
+              candidate.primary_skill
+            )}
 
           </span>
 
@@ -1030,12 +886,18 @@ function renderCandidates(data) {
 
         <td>
 
-          ${safe(candidate.preferred_job_type)}
+          ${safe(
+            candidate.preferred_job_type
+          )}
 
           <br>
 
           <small>
-            ${safe(candidate.preferred_location)}
+
+            ${safe(
+              candidate.preferred_location
+            )}
+
           </small>
 
         </td>
@@ -1043,10 +905,7 @@ function renderCandidates(data) {
       `;
 
 
-      candidateBody.appendChild(
-        row
-      );
-
+      candidateBody.appendChild(row);
 
     }
   );
@@ -1054,20 +913,16 @@ function renderCandidates(data) {
 }
 
 
-/* =====================================================
+/* =========================================
    FACTORIES
-===================================================== */
-
+========================================= */
 
 function renderFactories(data) {
 
-
-  factoryBody.innerHTML =
-    "";
+  factoryBody.innerHTML = "";
 
 
   if (!data.length) {
-
 
     factoryBody.innerHTML = `
 
@@ -1075,16 +930,14 @@ function renderFactories(data) {
 
         <td
           colspan="8"
-          class="empty">
-
+          class="empty"
+        >
           No factory requirements found.
-
         </td>
 
       </tr>
 
     `;
-
 
     return;
 
@@ -1093,7 +946,6 @@ function renderFactories(data) {
 
   data.forEach(
     factory => {
-
 
       const row =
         document.createElement("tr");
@@ -1105,7 +957,9 @@ function renderFactories(data) {
 
           <strong>
 
-            ${safe(factory.company_name)}
+            ${safe(
+              factory.company_name
+            )}
 
           </strong>
 
@@ -1113,22 +967,30 @@ function renderFactories(data) {
 
 
         <td>
-          ${safe(factory.contact_person)}
+          ${safe(
+            factory.contact_person
+          )}
         </td>
 
 
         <td>
-          ${safe(factory.mobile)}
+          ${safe(
+            factory.mobile
+          )}
         </td>
 
 
         <td>
-          ${safe(factory.location)}
+          ${safe(
+            factory.location
+          )}
         </td>
 
 
         <td>
-          ${safe(factory.vacancy)}
+          ${safe(
+            factory.vacancy
+          )}
         </td>
 
 
@@ -1136,7 +998,9 @@ function renderFactories(data) {
 
           <span class="badge">
 
-            ${safe(factory.workers_required)}
+            ${safe(
+              factory.workers_required
+            )}
 
           </span>
 
@@ -1144,21 +1008,22 @@ function renderFactories(data) {
 
 
         <td>
-          ${safe(factory.salary)}
+          ${safe(
+            factory.salary
+          )}
         </td>
 
 
         <td>
-          ${safe(factory.shift)}
+          ${safe(
+            factory.shift
+          )}
         </td>
 
       `;
 
 
-      factoryBody.appendChild(
-        row
-      );
-
+      factoryBody.appendChild(row);
 
     }
   );
@@ -1166,17 +1031,16 @@ function renderFactories(data) {
 }
 
 
-/* =====================================================
+/* =========================================
    SAFE TEXT
-===================================================== */
-
+========================================= */
 
 function safe(value) {
 
-
   if (
     value === null ||
-    value === undefined
+    value === undefined ||
+    value === ""
   ) {
 
     return "-";
@@ -1214,10 +1078,9 @@ function safe(value) {
 }
 
 
-/* =====================================================
+/* =========================================
    CANDIDATE SEARCH
-===================================================== */
-
+========================================= */
 
 document
   .getElementById(
@@ -1226,7 +1089,6 @@ document
   .addEventListener(
     "input",
     function() {
-
 
       const search =
         this.value
@@ -1249,7 +1111,6 @@ document
         candidates.filter(
           candidate => {
 
-
             const text = [
 
               candidate.full_name,
@@ -1271,10 +1132,8 @@ document
               candidate.preferred_job_type
 
             ]
-
-            .join(" ")
-
-            .toLowerCase();
+              .join(" ")
+              .toLowerCase();
 
 
             return text.includes(
@@ -1289,15 +1148,13 @@ document
         filtered
       );
 
-
     }
   );
 
 
-/* =====================================================
+/* =========================================
    FACTORY SEARCH
-===================================================== */
-
+========================================= */
 
 document
   .getElementById(
@@ -1306,7 +1163,6 @@ document
   .addEventListener(
     "input",
     function() {
-
 
       const search =
         this.value
@@ -1329,7 +1185,6 @@ document
         factories.filter(
           factory => {
 
-
             const text = [
 
               factory.company_name,
@@ -1347,10 +1202,8 @@ document
               factory.shift
 
             ]
-
-            .join(" ")
-
-            .toLowerCase();
+              .join(" ")
+              .toLowerCase();
 
 
             return text.includes(
@@ -1365,15 +1218,13 @@ document
         filtered
       );
 
-
     }
   );
 
 
-/* =====================================================
+/* =========================================
    LOGOUT
-===================================================== */
-
+========================================= */
 
 document
   .getElementById(
@@ -1383,88 +1234,22 @@ document
     "click",
     async function() {
 
-
-      const token =
-        localStorage.getItem(
-          "shramiq_access_token"
-        );
-
-
-      try {
-
-
-        if (token) {
-
-
-          await fetch(
-
-            SUPABASE_URL +
-            "/auth/v1/logout",
-
-            {
-
-              method: "POST",
-
-              headers: {
-
-                "apikey":
-                  SUPABASE_KEY,
-
-                "Authorization":
-                  "Bearer " + token
-
-              }
-
-            }
-
-          );
-
-        }
-
-
-      } catch (error) {
-
-
-        console.error(
-          error
-        );
-
-      }
-
-
-      /* Clear login */
-
-      localStorage.removeItem(
-        "shramiq_access_token"
-      );
-
-
-      localStorage.removeItem(
-        "shramiq_refresh_token"
-      );
-
-
-      /* Back to login */
+      await supabaseClient.auth.signOut();
 
       window.location.href =
-        "login.html";
-
+        "index.html";
 
     }
   );
 
 
-/* =====================================================
+/* =========================================
    START
-===================================================== */
-
+========================================= */
 
 loadDashboard();
 
-
 </script>
 
-
 </body>
-
 </html>

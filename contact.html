@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact Us | SHRAMIQ</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f8fc;
+      color: #142b45;
+      line-height: 1.6;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      background: #ffffff;
+      padding: 12px 6%;
+      border-bottom: 1px solid #e5eaf0;
+      box-shadow: 0 2px 12px rgba(6,43,84,0.06);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: auto;
+      min-height: 78px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      width: 165px;
+      display: block;
+    }
+
+    .back-home {
+      text-decoration: none;
+      color: #062b54;
+      font-weight: 700;
+
+      padding: 10px 16px;
+
+      border: 1px solid #d9e2ec;
+      border-radius: 8px;
+    }
+
+    .back-home:hover {
+      background: #062b54;
+      color: white;
+    }
+
+
+    /* ================= HERO ================= */
+
+    .hero {
+      background:
+        linear-gradient(
+          135deg,
+          #062b54,
+          #0b477b,
+          #123f67
+        );
+
+      color: white;
+
+      text-align: center;
+
+      padding: 70px 6%;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 span {
+      color: #f7a800;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+
+      color: #dbe8f4;
+
+      font-size: 17px;
+    }
+
+
+    /* ================= CONTAINER ================= */
+
+    .container {
+      max-width: 1100px;
+      margin: 50px auto 70px;
+
+      padding: 0 20px;
+    }
+
+
+    /* ================= CONTACT GRID ================= */
+
+    .contact-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 22px;
+    }
+
+
+    /* ================= CONTACT CARD ================= */
+
+    .contact-card {
+      background: white;
+
+      border: 1px solid #e6edf4;
+
+      border-radius: 16px;
+
+      padding: 30px;
+
+      box-shadow:
+        0 12px 35px rgba(6,43,84,0.07);
+
+      transition: 0.2s;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 16px 40px rgba(6,43,84,0.11);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #fff6df;
+
+      border-radius: 12px;
+
+      font-size: 25px;
+
+      margin-bottom: 17px;
+    }
+
+    .contact-card h2 {
+      color: #062b54;
+
+      font-size: 22px;
+
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      color: #667085;
+
+      font-size: 15px;
+    }
+
+    .contact-card a {
+      color: #0b477b;
+
+      text-decoration: none;
+
+      font-weight: 700;
+    }
+
+    .contact-card a:hover {
+      color: #f0a000;
+    }
+
+
+    /* ================= ADDRESS ================= */
+
+    .address-card {
+      grid-column: 1 / -1;
+    }
+
+    .address {
+      font-size: 17px;
+
+      color: #344054;
+
+      font-weight: 600;
+    }
+
+
+    /* ================= CTA ================= */
+
+    .cta {
+      margin-top: 25px;
+
+      background: #062b54;
+
+      color: white;
+
+      padding: 45px 25px;
+
+      border-radius: 18px;
+
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 30px;
+
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      color: #dbe8f4;
+
+      margin-bottom: 22px;
+    }
+
+    .buttons {
+      display: flex;
+
+      justify-content: center;
+
+      gap: 15px;
+
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+
+      text-decoration: none;
+
+      padding: 13px 22px;
+
+      border-radius: 8px;
+
+      font-weight: 800;
+    }
+
+    .btn-orange {
+      background: #f7a800;
+
+      color: white;
+    }
+
+    .btn-white {
+      background: white;
+
+      color: #062b54;
+    }
+
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #061d35;
+
+      color: #aebed0;
+
+      padding: 38px 20px;
+
+      text-align: center;
+    }
+
+    .footer-logo {
+      width: 150px;
+
+      background: white;
+
+      padding: 4px;
+
+      border-radius: 6px;
+
+      margin-bottom: 12px;
+    }
+
+    footer p {
+      margin-top: 5px;
+
+      font-size: 14px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    .orange {
+      color: #f7a800;
+    }
+
+
+    /* ================= MOBILE ================= */
+
+    @media(max-width: 700px) {
+
+      .header-inner {
+        min-height: 68px;
+      }
+
+      .logo {
+        width: 135px;
+      }
+
+      .back-home {
+        font-size: 13px;
+
+        padding: 8px 11px;
+      }
+
+      .hero {
+        padding: 55px 6%;
+      }
+
+      .hero h1 {
+        font-size: 35px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .address-card {
+        grid-column: auto;
+      }
+
+      .contact-card {
+        padding: 25px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+  <div class="header-inner">
+
+    <a href="index.html">
+
+      <img
+        src="shramiq-logo.png"
+        alt="SHRAMIQ Logo"
+        class="logo">
+
+    </a>
+
+
+    <a
+      href="index.html"
+      class="back-home">
+
+      ← Back to Home
+
+    </a>
+
+  </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+  <h1>
+    Contact <span>SHRAMIQ</span>
+  </h1>
+
+  <p>
+    Have a recruitment requirement or looking for a job opportunity?
+    Get in touch with our team.
+  </p>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<div class="container">
+
+
+  <div class="contact-grid">
+
+
+    <!-- ADDRESS -->
+
+    <div class="contact-card address-card">
+
+      <div class="icon">
+        📍
+      </div>
+
+      <h2>
+        Office Address
+      </h2>
+
+      <p class="address">
+
+        Dr. Madan Mohan Chowk,
+        Khatriyan,<br>
+
+        Bijnor, Uttar Pradesh -
+        246701
+
+      </p>
+
+    </div>
+
+
+    <!-- PHONE 1 -->
+
+    <div class="contact-card">
+
+      <div class="icon">
+        📞
+      </div>
+
+      <h2>
+        Call Us
+      </h2>
+
+      <p>
+
+        <a href="tel:7428919416">
+          7428919416
+        </a>
+
+      </p>
+
+      <p>
+
+        <a href="tel:8287499285">
+          8287499285
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <!-- EMAIL -->
+
+    <div class="contact-card">
+
+      <div class="icon">
+        ✉️
+      </div>
+
+      <h2>
+        Email Us
+      </h2>
+
+      <p>
+
+        <a href="mailto:sharmiq.in@gmail.com">
+          sharmiq.in@gmail.com
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <!-- WEBSITE -->
+
+    <div class="contact-card">
+
+      <div class="icon">
+        🌐
+      </div>
+
+      <h2>
+        Website
+      </h2>
+
+      <p>
+
+        <a
+          href="https://www.shramiq.in"
+          target="_blank">
+
+          www.shramiq.in
+
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <!-- BUSINESS HOURS -->
+
+    <div class="contact-card">
+
+      <div class="icon">
+        🕐
+      </div>
+
+      <h2>
+        Recruitment Support
+      </h2>
+
+      <p>
+        Contact us for candidate registration,
+        staffing requirements and recruitment enquiries.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= CTA ================= -->
+
+  <div class="cta">
+
+    <h2>
+      Let's Build the Right Workforce
+    </h2>
+
+    <p>
+      Register as a candidate or submit your factory
+      staffing requirement today.
+    </p>
+
+
+    <div class="buttons">
+
+      <a
+        href="candidate.html"
+        class="btn btn-orange">
+
+        Candidate Registration
+
+      </a>
+
+
+      <a
+        href="factory.html"
+        class="btn btn-white">
+
+        Factory Registration
+
+      </a>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <img
+    src="shramiq-logo.png"
+    alt="SHRAMIQ Logo"
+    class="footer-logo">
+
+
+  <p>
+
+    <strong>
+      SHRAM<span class="orange">IQ</span>
+    </strong>
+
+    — Industrial Recruitment & Staffing
+
+  </p>
+
+
+  <p>
+    Right People • Right Jobs • Better Future
+  </p>
+
+
+  <p style="margin-top:15px;">
+
+    © 2026 SHRAMIQ.
+    All rights reserved.
+
+  </p>
+
+</footer>
+
+
+</body>
+</html>

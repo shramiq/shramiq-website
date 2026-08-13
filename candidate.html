@@ -7,6 +7,7 @@
   <title>Candidate Registration | SHRAMIQ</title>
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -15,83 +16,160 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #f5f7fa;
-      color: #172033;
+      background: #f5f8fc;
+      color: #142b45;
+      line-height: 1.6;
     }
 
+    /* ================= HEADER ================= */
+
     header {
-      background: white;
-      padding: 18px 7%;
+      background: #ffffff;
+      padding: 12px 6%;
+      border-bottom: 1px solid #e5eaf0;
+      box-shadow: 0 2px 12px rgba(6, 43, 84, 0.06);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: auto;
+      min-height: 78px;
+
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #e5e7eb;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
     }
 
     .logo {
-      font-size: 28px;
-      font-weight: 900;
-      color: #102a43;
-      letter-spacing: 1px;
+      width: 165px;
+      height: auto;
+      display: block;
     }
 
-    .logo span {
-      color: #f59e0b;
-    }
-
-    header a {
+    .back-home {
       text-decoration: none;
-      color: #344054;
+      color: #062b54;
       font-weight: 700;
+      padding: 10px 16px;
+      border: 1px solid #d9e2ec;
+      border-radius: 8px;
+      transition: 0.2s;
     }
+
+    .back-home:hover {
+      background: #062b54;
+      color: #ffffff;
+      border-color: #062b54;
+    }
+
+
+    /* ================= HERO ================= */
 
     .hero {
-      background: #102a43;
+      background:
+        linear-gradient(
+          135deg,
+          #062b54 0%,
+          #0b477b 70%,
+          #123f67 100%
+        );
+
       color: white;
-      padding: 55px 7%;
+      padding: 65px 6%;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border: 2px solid rgba(247,168,0,0.18);
+      border-radius: 50%;
+      right: -80px;
+      top: -120px;
     }
 
     .hero h1 {
-      font-size: 42px;
+      font-size: 43px;
+      line-height: 1.2;
       margin-bottom: 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 span {
+      color: #f7a800;
     }
 
     .hero p {
-      color: #d5dfeb;
+      color: #dbe8f4;
       font-size: 17px;
+      max-width: 700px;
+      margin: auto;
+      position: relative;
+      z-index: 2;
     }
 
+
+    /* ================= CONTAINER ================= */
+
     .container {
-      max-width: 900px;
-      margin: 45px auto;
+      max-width: 950px;
+      margin: 45px auto 70px;
       padding: 0 20px;
     }
 
     .form-box {
       background: white;
-      padding: 35px;
-      border-radius: 16px;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+      padding: 40px;
+      border-radius: 18px;
+
+      box-shadow:
+        0 15px 45px rgba(6,43,84,0.09);
+
+      border: 1px solid #e6edf4;
     }
+
+
+    /* ================= FORM TITLE ================= */
 
     .form-title {
       margin-bottom: 30px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid #edf1f5;
     }
 
     .form-title h2 {
-      color: #102a43;
-      margin-bottom: 8px;
+      color: #062b54;
+      font-size: 27px;
+      margin-bottom: 7px;
+    }
+
+    .form-title h2 span {
+      color: #f7a800;
     }
 
     .form-title p {
       color: #667085;
+      font-size: 15px;
     }
+
+
+    /* ================= GRID ================= */
 
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 21px;
     }
 
     .field {
@@ -103,77 +181,142 @@
       grid-column: 1 / -1;
     }
 
+
+    /* ================= LABEL ================= */
+
     label {
       font-weight: 700;
       margin-bottom: 8px;
       color: #344054;
+      font-size: 14px;
     }
+
+
+    /* ================= INPUTS ================= */
 
     input,
     select,
     textarea {
       width: 100%;
       padding: 13px 14px;
-      border: 1px solid #d0d5dd;
+
+      border: 1px solid #cfd8e3;
       border-radius: 8px;
+
       font-size: 15px;
+      font-family: inherit;
+
       outline: none;
-      background: white;
+      background: #ffffff;
+
+      color: #172033;
+
+      transition: 0.2s;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #98a2b3;
     }
 
     input:focus,
     select:focus,
     textarea:focus {
-      border-color: #f59e0b;
+      border-color: #f7a800;
+
+      box-shadow:
+        0 0 0 3px rgba(247,168,0,0.12);
     }
 
     textarea {
-      min-height: 110px;
+      min-height: 120px;
       resize: vertical;
     }
 
+
+    /* ================= CONSENT ================= */
+
     .consent {
       margin-top: 25px;
-      padding: 15px;
-      background: #f8fafc;
+      padding: 16px;
+
+      background: #f5f9fd;
+
+      border-left: 4px solid #f7a800;
       border-radius: 8px;
+
       color: #667085;
       font-size: 14px;
       line-height: 1.6;
     }
 
+    .consent label {
+      margin: 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-weight: 400;
+    }
+
     .consent input {
       width: auto;
-      margin-right: 8px;
+      margin-top: 4px;
+      accent-color: #f7a800;
     }
+
+
+    /* ================= BUTTON ================= */
 
     button {
       margin-top: 25px;
+
       width: 100%;
       padding: 15px;
+
       border: none;
       border-radius: 9px;
-      background: #f59e0b;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f7a800,
+          #e88d00
+        );
+
       color: white;
+
       font-size: 17px;
       font-weight: 800;
+
       cursor: pointer;
+
+      box-shadow:
+        0 7px 18px rgba(247,168,0,0.25);
+
+      transition: 0.2s;
     }
 
     button:hover {
-      background: #d97706;
+      transform: translateY(-1px);
+
+      box-shadow:
+        0 10px 22px rgba(247,168,0,0.32);
     }
 
     button:disabled {
       opacity: 0.6;
       cursor: not-allowed;
+      transform: none;
     }
+
+
+    /* ================= MESSAGE ================= */
 
     #message {
       display: none;
       margin-top: 20px;
-      padding: 15px;
-      border-radius: 8px;
+      padding: 16px;
+      border-radius: 9px;
       text-align: center;
       font-weight: 700;
     }
@@ -182,13 +325,18 @@
       display: block !important;
       background: #ecfdf3;
       color: #027a48;
+      border: 1px solid #abefc6;
     }
 
     .error {
       display: block !important;
       background: #fef3f2;
       color: #b42318;
+      border: 1px solid #fecdca;
     }
+
+
+    /* ================= NOTE ================= */
 
     .note {
       text-align: center;
@@ -197,19 +345,71 @@
       font-size: 13px;
     }
 
+
+    /* ================= FOOTER ================= */
+
     footer {
-      margin-top: 60px;
-      padding: 30px;
-      background: #091b2e;
+      background: #061d35;
       color: #aebed0;
+      padding: 38px 20px;
       text-align: center;
     }
 
-    footer strong {
-      color: white;
+    .footer-logo {
+      width: 150px;
+      background: white;
+      padding: 4px;
+      border-radius: 6px;
+      margin-bottom: 12px;
     }
 
+    footer p {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    footer strong {
+      color: #ffffff;
+    }
+
+    .footer-orange {
+      color: #f7a800;
+    }
+
+
+    /* ================= MOBILE ================= */
+
     @media(max-width: 700px) {
+
+      header {
+        padding: 10px 5%;
+      }
+
+      .header-inner {
+        min-height: 68px;
+      }
+
+      .logo {
+        width: 135px;
+      }
+
+      .back-home {
+        font-size: 13px;
+        padding: 8px 11px;
+      }
+
+      .hero {
+        padding: 50px 6%;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
       .grid {
         grid-template-columns: 1fr;
       }
@@ -219,39 +419,69 @@
       }
 
       .form-box {
-        padding: 25px 20px;
+        padding: 27px 20px;
       }
 
-      .hero h1 {
-        font-size: 34px;
+      .form-title h2 {
+        font-size: 24px;
       }
+
+      .container {
+        margin-top: 30px;
+      }
+
     }
+
   </style>
+
 </head>
+
 
 <body>
 
+
+<!-- ================= HEADER ================= -->
+
 <header>
 
-  <div class="logo">
-    SHRAM<span>IQ</span>
-  </div>
+  <div class="header-inner">
 
-  <a href="index.html">
-    ← Back to Home
-  </a>
+    <a href="index.html" class="brand">
+
+      <img
+        src="shramiq-logo.png"
+        alt="SHRAMIQ - Industrial Recruitment & Staffing"
+        class="logo">
+
+    </a>
+
+
+    <a href="index.html" class="back-home">
+      ← Back to Home
+    </a>
+
+  </div>
 
 </header>
 
+
+<!-- ================= HERO ================= -->
+
 <section class="hero">
 
-  <h1>Candidate Registration</h1>
+  <h1>
+    Candidate <span>Registration</span>
+  </h1>
 
   <p>
-    Register with SHRAMIQ and discover suitable industrial job opportunities.
+    Register with SHRAMIQ and discover suitable industrial
+    job opportunities based on your skills and experience.
   </p>
 
 </section>
+
+
+<!-- ================= FORM ================= -->
 
 <div class="container">
 
@@ -259,66 +489,165 @@
 
     <div class="form-title">
 
-      <h2>Your Career Starts Here</h2>
+      <h2>
+        Your Career <span>Starts Here</span>
+      </h2>
 
       <p>
-        Please provide accurate information so we can understand your
-        profile and contact you for suitable opportunities.
+        Please provide accurate information so we can understand
+        your profile and contact you for suitable opportunities.
       </p>
 
     </div>
 
+
     <form id="candidateForm">
+
 
       <div class="grid">
 
-        <div class="field">
-          <label>Full Name *</label>
-          <input type="text" id="full_name" required>
-        </div>
 
         <div class="field">
-          <label>Mobile Number *</label>
-          <input type="tel" id="mobile" pattern="[0-9]{10}" maxlength="10" required>
+
+          <label>
+            Full Name *
+          </label>
+
+          <input
+            type="text"
+            id="full_name"
+            placeholder="Enter your full name"
+            required>
+
         </div>
 
-        <div class="field">
-          <label>WhatsApp Number</label>
-          <input type="tel" id="whatsapp" pattern="[0-9]{10}" maxlength="10">
-        </div>
 
         <div class="field">
-          <label>Age *</label>
-          <input type="number" id="age" min="18" max="65" required>
+
+          <label>
+            Mobile Number *
+          </label>
+
+          <input
+            type="tel"
+            id="mobile"
+            placeholder="10-digit mobile number"
+            pattern="[0-9]{10}"
+            maxlength="10"
+            required>
+
         </div>
 
-        <div class="field">
-          <label>Current District *</label>
-          <input type="text" id="district" required>
-        </div>
 
         <div class="field">
-          <label>Current State *</label>
+
+          <label>
+            WhatsApp Number
+          </label>
+
+          <input
+            type="tel"
+            id="whatsapp"
+            placeholder="WhatsApp number"
+            pattern="[0-9]{10}"
+            maxlength="10">
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Age *
+          </label>
+
+          <input
+            type="number"
+            id="age"
+            placeholder="Your age"
+            min="18"
+            max="65"
+            required>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Current District *
+          </label>
+
+          <input
+            type="text"
+            id="district"
+            placeholder="e.g. Bijnor"
+            required>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Current State *
+          </label>
 
           <select id="state" required>
-            <option value="">Select State</option>
-            <option>Uttar Pradesh</option>
-            <option>Uttarakhand</option>
-            <option>Delhi</option>
-            <option>Haryana</option>
-            <option>Punjab</option>
-            <option>Rajasthan</option>
-            <option>Himachal Pradesh</option>
-            <option>Other</option>
+
+            <option value="">
+              Select State
+            </option>
+
+            <option>
+              Uttar Pradesh
+            </option>
+
+            <option>
+              Uttarakhand
+            </option>
+
+            <option>
+              Delhi
+            </option>
+
+            <option>
+              Haryana
+            </option>
+
+            <option>
+              Punjab
+            </option>
+
+            <option>
+              Rajasthan
+            </option>
+
+            <option>
+              Himachal Pradesh
+            </option>
+
+            <option>
+              Other
+            </option>
+
           </select>
 
         </div>
 
+
         <div class="field">
-          <label>Education *</label>
+
+          <label>
+            Education *
+          </label>
 
           <select id="education" required>
-            <option value="">Select Education</option>
+
+            <option value="">
+              Select Education
+            </option>
+
             <option>8th Pass</option>
             <option>10th Pass</option>
             <option>12th Pass</option>
@@ -327,39 +656,76 @@
             <option>Graduate</option>
             <option>Post Graduate</option>
             <option>Other</option>
+
           </select>
 
         </div>
 
+
         <div class="field">
-          <label>Work Experience *</label>
+
+          <label>
+            Work Experience *
+          </label>
 
           <select id="experience" required>
-            <option value="">Select Experience</option>
+
+            <option value="">
+              Select Experience
+            </option>
+
             <option>Fresher</option>
             <option>Less than 1 Year</option>
             <option>1–2 Years</option>
             <option>2–5 Years</option>
             <option>5+ Years</option>
+
           </select>
 
         </div>
 
-        <div class="field">
-          <label>Primary Skill / Job Role *</label>
-          <input type="text" id="primary_skill" placeholder="e.g. Machine Operator" required>
-        </div>
 
         <div class="field">
-          <label>Expected Monthly Salary</label>
-          <input type="number" id="expected_salary">
+
+          <label>
+            Primary Skill / Job Role *
+          </label>
+
+          <input
+            type="text"
+            id="primary_skill"
+            placeholder="e.g. Machine Operator"
+            required>
+
         </div>
 
+
         <div class="field">
-          <label>Preferred Job Location *</label>
+
+          <label>
+            Expected Monthly Salary
+          </label>
+
+          <input
+            type="number"
+            id="expected_salary"
+            placeholder="e.g. 15000">
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Preferred Job Location *
+          </label>
 
           <select id="preferred_location" required>
-            <option value="">Select Location</option>
+
+            <option value="">
+              Select Location
+            </option>
+
             <option>Haridwar</option>
             <option>Roorkee</option>
             <option>Rudrapur</option>
@@ -368,15 +734,24 @@
             <option>Sitarganj</option>
             <option>Bijnor</option>
             <option>Any Location</option>
+
           </select>
 
         </div>
 
+
         <div class="field">
-          <label>Preferred Job Type *</label>
+
+          <label>
+            Preferred Job Type *
+          </label>
 
           <select id="preferred_job_type" required>
-            <option value="">Select Job Type</option>
+
+            <option value="">
+              Select Job Type
+            </option>
+
             <option>Production</option>
             <option>Machine Operator</option>
             <option>Warehouse</option>
@@ -385,43 +760,70 @@
             <option>Security</option>
             <option>Helper</option>
             <option>Other</option>
+
           </select>
 
         </div>
 
+
         <div class="field full">
-          <label>Additional Information</label>
+
+          <label>
+            Additional Information
+          </label>
 
           <textarea
             id="additional_information"
-            placeholder="Tell us about your previous work, skills or job preference">
-          </textarea>
+            placeholder="Tell us about your previous work, skills or job preference"></textarea>
 
         </div>
 
       </div>
 
+
+      <!-- CONSENT -->
+
       <div class="consent">
 
         <label>
-          <input type="checkbox" id="consent" required>
 
-          I confirm that the information provided by me is accurate
-          and I agree to be contacted by SHRAMIQ regarding suitable
-          job opportunities.
+          <input
+            type="checkbox"
+            id="consent"
+            required>
+
+          <span>
+            I confirm that the information provided by me is accurate
+            and I agree to be contacted by SHRAMIQ regarding suitable
+            job opportunities.
+          </span>
+
         </label>
 
       </div>
 
-      <button type="submit" id="submitBtn">
+
+      <!-- SUBMIT -->
+
+      <button
+        type="submit"
+        id="submitBtn">
+
         Submit Registration
+
       </button>
+
 
       <div id="message"></div>
 
+
       <div class="note">
-        Your information will be used only for recruitment-related communication.
+
+        Your information will be used only for
+        recruitment-related communication.
+
       </div>
+
 
     </form>
 
@@ -429,13 +831,33 @@
 
 </div>
 
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
-  © 2026 <strong>SHRAMIQ</strong> —
-  Industrial Recruitment & Staffing
+  <img
+    src="shramiq-logo.png"
+    alt="SHRAMIQ Logo"
+    class="footer-logo">
+
+  <p>
+    <strong>SHRAM<span class="footer-orange">IQ</span></strong>
+    — Industrial Recruitment & Staffing
+  </p>
+
+  <p>
+    Right People • Right Jobs • Better Future
+  </p>
+
+  <p style="margin-top:15px;">
+    © 2026 SHRAMIQ. All rights reserved.
+  </p>
 
 </footer>
 
+
+<!-- ================= SUPABASE ================= -->
 
 <script>
 
@@ -446,20 +868,32 @@ const SUPABASE_KEY =
 "sb_publishable_dY-hms5DXZ6n2RvB5N-9oA_9NsdgjxI";
 
 
-const form = document.getElementById("candidateForm");
-const button = document.getElementById("submitBtn");
-const message = document.getElementById("message");
+const form =
+document.getElementById("candidateForm");
+
+const button =
+document.getElementById("submitBtn");
+
+const message =
+document.getElementById("message");
 
 
-form.addEventListener("submit", async function(event) {
+form.addEventListener(
+"submit",
+async function(event) {
 
   event.preventDefault();
 
   button.disabled = true;
-  button.textContent = "Submitting...";
+
+  button.textContent =
+  "Submitting...";
 
   message.className = "";
-  message.style.display = "none";
+
+  message.style.display =
+  "none";
+
 
   const candidate = {
 
@@ -473,7 +907,9 @@ form.addEventListener("submit", async function(event) {
       document.getElementById("whatsapp").value.trim() || null,
 
     age:
-      Number(document.getElementById("age").value),
+      Number(
+        document.getElementById("age").value
+      ),
 
     district:
       document.getElementById("district").value.trim(),
@@ -492,8 +928,12 @@ form.addEventListener("submit", async function(event) {
 
     expected_salary:
       document.getElementById("expected_salary").value
-        ? Number(document.getElementById("expected_salary").value)
-        : null,
+      ?
+      Number(
+        document.getElementById("expected_salary").value
+      )
+      :
+      null,
 
     preferred_location:
       document.getElementById("preferred_location").value,
@@ -502,33 +942,52 @@ form.addEventListener("submit", async function(event) {
       document.getElementById("preferred_job_type").value,
 
     additional_information:
-      document.getElementById("additional_information").value.trim() || null
+      document
+      .getElementById("additional_information")
+      .value
+      .trim() || null
 
   };
 
 
   try {
 
-    const response = await fetch(
-      SUPABASE_URL + "/rest/v1/candidates",
-      {
-        method: "POST",
+    const response =
+      await fetch(
+        SUPABASE_URL +
+        "/rest/v1/candidates",
+        {
 
-        headers: {
-          "apikey": SUPABASE_KEY,
-          "Authorization": "Bearer " + SUPABASE_KEY,
-          "Content-Type": "application/json",
-          "Prefer": "return=minimal"
-        },
+          method: "POST",
 
-        body: JSON.stringify(candidate)
-      }
-    );
+          headers: {
+
+            "apikey":
+              SUPABASE_KEY,
+
+            "Authorization":
+              "Bearer " +
+              SUPABASE_KEY,
+
+            "Content-Type":
+              "application/json",
+
+            "Prefer":
+              "return=minimal"
+
+          },
+
+          body:
+            JSON.stringify(candidate)
+
+        }
+      );
 
 
     if (!response.ok) {
 
-      const errorText = await response.text();
+      const errorText =
+        await response.text();
 
       throw new Error(errorText);
 
@@ -538,11 +997,13 @@ form.addEventListener("submit", async function(event) {
     message.textContent =
       "✅ Registration successful! SHRAMIQ team will contact you for suitable job opportunities.";
 
-    message.className = "success";
+    message.className =
+      "success";
 
     form.reset();
 
   }
+
 
   catch (error) {
 
@@ -551,20 +1012,25 @@ form.addEventListener("submit", async function(event) {
     message.textContent =
       "❌ Registration failed. Please try again later.";
 
-    message.className = "error";
+    message.className =
+      "error";
 
   }
+
 
   finally {
 
     button.disabled = false;
-    button.textContent = "Submit Registration";
+
+    button.textContent =
+      "Submit Registration";
 
   }
 
 });
 
 </script>
+
 
 </body>
 </html>

@@ -58,7 +58,8 @@
     nav {
       display: flex;
       align-items: center;
-      gap: 25px;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -137,6 +138,11 @@
     .btn-secondary {
       border: 1px solid #d8e3ef;
       color: white;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: #102a43;
     }
 
     .hero-card {
@@ -336,7 +342,7 @@
       max-width: 1200px;
       margin: auto;
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
       gap: 40px;
     }
 
@@ -364,6 +370,15 @@
       color: #fbbf24;
     }
 
+    .contact-info {
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .contact-info a {
+      display: inline;
+    }
+
     .copyright {
       max-width: 1200px;
       margin: 40px auto 0;
@@ -382,7 +397,7 @@
       }
 
       nav {
-        gap: 10px;
+        gap: 8px;
       }
 
       nav a:not(.nav-button) {
@@ -460,17 +475,19 @@
 <body>
 
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 
 <header>
 
   <div class="nav">
 
     <a href="index.html">
+
       <img
         src="shramiq-logo.png"
         alt="SHRAMIQ"
         class="site-logo">
+
     </a>
 
 
@@ -482,6 +499,14 @@
 
       <a href="#how">
         How It Works
+      </a>
+
+      <a href="about.html">
+        About Us
+      </a>
+
+      <a href="contact.html">
+        Contact
       </a>
 
       <a
@@ -497,7 +522,7 @@
 </header>
 
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
@@ -556,7 +581,7 @@
 </section>
 
 
-<!-- STATS -->
+<!-- ================= STATS ================= -->
 
 <div class="stats">
 
@@ -606,7 +631,7 @@
 </div>
 
 
-<!-- SERVICES -->
+<!-- ================= SERVICES ================= -->
 
 <section
   class="services"
@@ -694,7 +719,7 @@
 </section>
 
 
-<!-- HOW IT WORKS -->
+<!-- ================= HOW IT WORKS ================= -->
 
 <section id="how">
 
@@ -777,7 +802,7 @@
 </section>
 
 
-<!-- CTA -->
+<!-- ================= CTA ================= -->
 
 <section class="cta">
 
@@ -793,19 +818,25 @@
     </p>
 
 
-    <div class="hero-buttons"
-         style="justify-content:center;">
+    <div
+      class="hero-buttons"
+      style="justify-content:center;">
 
       <a
         href="candidate.html"
         class="btn btn-primary">
+
         Register as Candidate
+
       </a>
+
 
       <a
         href="factory.html"
         class="btn btn-secondary">
+
         Register Your Factory
+
       </a>
 
     </div>
@@ -815,12 +846,14 @@
 </section>
 
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
   <div class="footer-inner">
 
+
+    <!-- COMPANY -->
 
     <div>
 
@@ -836,6 +869,31 @@
 
     </div>
 
+
+    <!-- COMPANY LINKS -->
+
+    <div>
+
+      <h3>
+        Company
+      </h3>
+
+      <a href="about.html">
+        About Us
+      </a>
+
+      <a href="contact.html">
+        Contact Us
+      </a>
+
+      <a href="index.html">
+        Home
+      </a>
+
+    </div>
+
+
+    <!-- CANDIDATES -->
 
     <div>
 
@@ -854,6 +912,8 @@
     </div>
 
 
+    <!-- EMPLOYERS -->
+
     <div>
 
       <h3>
@@ -868,6 +928,31 @@
         Hire Workforce
       </a>
 
+      <div class="contact-info">
+
+        <br>
+
+        📞
+        <a href="tel:7428919416">
+          7428919416
+        </a>
+
+        <br>
+
+        📞
+        <a href="tel:8287499285">
+          8287499285
+        </a>
+
+        <br>
+
+        ✉️
+        <a href="mailto:sharmiq.in@gmail.com">
+          sharmiq.in@gmail.com
+        </a>
+
+      </div>
+
     </div>
 
   </div>
@@ -877,6 +962,11 @@
 
     © 2026 SHRAMIQ.
     All rights reserved.
+
+    <br>
+
+    Dr. Madan Mohan Chowk, Khatriyan,
+    Bijnor, Uttar Pradesh - 246701
 
   </div>
 
